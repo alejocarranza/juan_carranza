@@ -11,24 +11,35 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-        
+
         <link rel="stylesheet" href='{% static "css/base/styles.css" %}'>
         {% block style %} {% endblock %}
     </head>
     <body>
         <header>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="logo" class="logo">
-
+            <a href="#" id="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="logo">
+            </a>
+            <span class="nav-bar" id="btnMenu">
+                <i class="fa-solid fa-bars fa-2xl"></i> 
+            </span> 
             <nav id="nav">
-                <ul class="nav__links">
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Casas</a></li>
-                    <li><a href="#">Nosotros</a></li>
+                <ul class="menu">
+                    <li class="menu__item"><a href="#" class="menu__link">Inicio</a></li>
+                    <li class="menu__item container-submenu">
+                        <a href="#" class="submenu-btn menu__link">Casas</a>
+                        <ul class="submenu">
+                            <li class="submenu__item"><a href="#" class="menu__link">Casa 1</a></li>
+                            <li class="submenu__item"><a href="#" class="menu__link">Casa 2</a></li>
+                            <li class="submenu__item"><a href="#" class="menu__link">Casa 3</a></li>
+                            <li class="submenu__item"><a href="#" class="menu__link">Casa 4</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu__item"><a href="#" class="menu__link">Nosotros</a></li>
                 </ul>
             </nav>
 
             <a href="#" class="cta"><button id="btn-contacto">Contacto</button></a>
-            <img src="https://static.vecteezy.com/system/resources/previews/009/362/781/non_2x/app-menu-icon-sign-symbol-design-free-png.png" alt="menu-hamburguesa" id="hamburguesa" data-touched="false">
         </header>
 
         {% block content %} {% endblock %}
@@ -37,6 +48,7 @@
             
         </footer>
 
+        <script src="https://kit.fontawesome.com/a10000d2c4.js" crossorigin="anonymous"></script>
         <script src="{% static 'js/base/script.js' %}"></script>
     </body>
 </html>

@@ -1,14 +1,30 @@
-*{
+:root{
+    /* --back-color: #333439;
+    --font-color: #edf0f1;
+    --header-color: rgb(24, 24, 24);
+    --header-color-hover: rgb(35, 35, 35);
+    --second-color: #0088a9;
+    --second-color-hover: rgba(0, 136, 169, 0.8); */
+    --back-color: #ececec;
+    --font-color: black;
+    --header-color: #949ba2;
+    --header-color-hover: rgb(175, 180, 186);
+    --header-submenu-separator: rgb(190, 195, 201);
+    --second-color: #09cda9;
+    --second-color-hover: #079e83;
+}
+
+/* *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #333439;
+    background-color: var(--back-color);
     font-family: "Montserrat", sans-serif;
-    color: #edf0f1;
+    color: var(--font-color);
 }
 
 header *{
-    background-color: rgb(24, 24, 24);
+    background-color: var(--header-color);
 }
 
 .nav__links li, .nav__links li a, #btn-contacto{
@@ -20,19 +36,23 @@ header *{
 header{
     display: flex;
     align-items: center;
-    background-color: rgb(24, 24, 24);
-    border-bottom: 3.5px solid #0088a9;
+    background-color: var(--header-color);
+    border-bottom: 3.5px solid var(--second-color);
 }
 
 #btn-contacto{
-    background-color: rgba(0, 136, 169, 1);
+    background-color: var(--second-color);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
 
 #btn-contacto:hover{
-    background-color: rgba(0, 136, 169, 0.8);
+    background-color: var(--second-color-hover);
+}
+
+#nav-ul-casas{
+    display: none;
 }
 
 @media screen and (min-width: 660px) {
@@ -43,7 +63,7 @@ header{
     }
 
     header *{
-        background-color: rgb(24, 24, 24);
+        background-color: var(--header-color);
     }
 
     .logo{
@@ -56,17 +76,17 @@ header{
         list-style: none;
     }
 
-    .nav__links li{
+    .nav__links > li{
         display: inline-block;
         padding: 0px 20px;
     }
 
-    .nav__links li a{
+    .nav__links > li > a{
         transition: all 0.3s ease 0s;
     }
 
-    .nav__links li a:hover{
-        color: #0088a9;
+    .nav__links > li > a:hover{
+        color: var(--second-color-hover);
     }
 
     #btn-contacto{
@@ -78,9 +98,37 @@ header{
     #hamburguesa{
         display: none;
     }
+
+    #nav-ul-casas{
+        position: absolute;
+        right: calc(200px + 10%);
+        top: 59px;
+        flex-direction: column;
+        border-radius: 8px;
+        list-style: none;
+    }
+
+    #nav-ul-casas > li:first-child{
+        border-radius: 8px 8px 0 0;
+    }
+    #nav-ul-casas > li:last-child{
+        border-radius: 0 0 8px 8px;
+    }
+
+    #nav-ul-casas > li:hover{
+        background-color: var(--header-color-hover);
+        cursor: pointer;
+    }
+    #nav-ul-casas > li:hover > a{
+        background-color: var(--header-color-hover);
+    }
+
+    #nav-ul-casas > li > a{
+        padding: 10px 60px;
+    }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 659px) {
     .logo{
         height: 30px;
     }
@@ -106,22 +154,22 @@ header{
         text-align: center;
     }
 
-    .nav__links li{
+    .nav__links > li{
         padding: 30px 0px;
         width: 100vw;
-        border-bottom: 1px solid #0088a9;
+        border-bottom: 1px solid var(--second-color);
         transition: all 0.3s ease 0s;
     }
-    .nav__links li a{
+    .nav__links > li > a{
         transition: all 0.3s ease 0s;
     }
 
-    .nav__links li:hover{
-        background-color: rgb(35, 35, 35);
+    .nav__links > li:hover{
+        background-color: var(--header-color-hover);
         cursor: pointer;
     }
-    .nav__links li:hover > a{
-        background-color: rgb(35, 35, 35);
+    .nav__links > li:hover > a{
+        background-color: var(--header-color-hover);
         cursor: pointer;
     }
 
@@ -133,15 +181,167 @@ header{
     }
 
     #nav, #btn-contacto{
+        transition: all 0.4s ease-in 0s;
         left: auto;     
         right: 100vw;    
     }
+} */
+#btnMenu{
+    display: none;
 }
 
 
+body{
+    background-color: var(--back-color);
+}
 
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
 
+header li, a, button{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--font-color);
+    text-decoration: none;
+}
 
+header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: var(--header-color);
+}
 
+#logo{
+    cursor: pointer;
+    margin-right: auto;
+}
+#logo img{
+    height: 30px;
+}
 
+.menu{
+    height: 30px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
 
+.menu > li{
+    display: inline-block;
+}
+
+.menu > li > a{
+    transition: all 0.3s ease 0s;
+}
+
+#btn-contacto{
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: var(--second-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+#btn-contacto:hover{
+    background-color: var(--second-color-hover);
+}
+
+@media (min-width: 800px) {
+    /* La hago hovered */
+    .container-submenu{
+        position: relative;
+    }
+
+    .submenu{
+        list-style: none;
+        position: absolute;
+        left: 8px;
+        top: 28px;
+        transition: all 0.3s ease 0s;
+        z-index: 1000;
+        overflow: hidden;
+        opacity: 0;
+        display: none;
+        border-radius: 50px;
+    }
+    .container-submenu:hover .submenu{
+        overflow: visible;
+        opacity: 1;
+        display: block;
+    }
+
+    .submenu__item:first-child{
+        border-radius: 6px 6px 0 0;
+    }
+    .submenu__item:last-child{
+        border-radius: 0 0 6px 6px;
+    }
+    .submenu__item{
+        background-color: var(--header-color-hover);
+        padding: 16px 22px;
+        width: 150px;
+        cursor: pointer;
+        border-bottom: 1px solid var(--header-submenu-separator);
+    }
+    .submenu__item:hover{
+        background-color: var(--header-color);
+    }
+
+    .menu > li{
+        padding: 0px 20px;
+    }
+    .menu > li > a:hover{
+        color: var(--second-color-hover);
+    }
+}
+
+@media (max-width: 800px){
+    #btnMenu{
+        display: block;
+        cursor: pointer;
+    }
+
+    header{
+        justify-content: space-between;
+    }
+
+    #nav{
+        position: absolute;
+        margin: 0;
+        left: 0px;
+        top: 77.4px;
+        padding: 0;
+    }
+
+    .menu, .submenu{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu__item, .submenu__item{
+        background-color: var(--header-color-hover);
+        width: 100vw;
+        padding: 16px 0px;
+        /* border-bottom: 1px solid var(--header-submenu-separator); */
+    }
+    .submenu__item:first-child{
+        padding-top: 30px;
+    }
+    .submenu__item:last-child{
+        padding-bottom: 0;
+    }
+
+    .submenu__item{
+        padding-left: 25px;
+    }
+}
