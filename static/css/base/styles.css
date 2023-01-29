@@ -186,7 +186,7 @@ header{
         right: 100vw;    
     }
 } */
-#btnMenu{
+#btn-menu{
     display: none;
 }
 
@@ -222,7 +222,7 @@ header{
     margin-right: auto;
 }
 #logo img{
-    height: 30px;
+    height: 35px;
 }
 
 .menu{
@@ -241,17 +241,10 @@ header{
 }
 
 #btn-contacto{
-    margin-left: 20px;
-    padding: 9px 25px;
     background-color: var(--second-color);
     border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
 }
-#btn-contacto:hover{
-    background-color: var(--second-color-hover);
-}
+
 
 @media (min-width: 800px) {
     /* La hago hovered */
@@ -300,10 +293,21 @@ header{
     .menu > li > a:hover{
         color: var(--second-color-hover);
     }
+
+    #btn-contacto{
+        margin-left: 20px;
+        padding: 9px 25px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+    #btn-contacto:hover{
+        background-color: var(--second-color-hover);
+    }
 }
 
 @media (max-width: 800px){
-    #btnMenu{
+    #btn-menu{
         display: block;
         cursor: pointer;
     }
@@ -322,26 +326,56 @@ header{
 
     .menu, .submenu{
         list-style: none;
-        display: flex;
         flex-direction: column;
         width: 100%;
         text-align: center;
+        display: flex; /* aca pana flex */
+        transition: all 0.5s ease 0s;
+        visibility: hidden;
+        opacity: 0;
     }
 
     .menu__item, .submenu__item{
         background-color: var(--header-color-hover);
         width: 100vw;
         padding: 16px 0px;
-        /* border-bottom: 1px solid var(--header-submenu-separator); */
+        border-bottom: 1px solid var(--header-submenu-separator);
     }
     .submenu__item:first-child{
         padding-top: 30px;
     }
     .submenu__item:last-child{
         padding-bottom: 0;
+        border-bottom: 0;
     }
 
-    .submenu__item{
-        padding-left: 25px;
+    .submenu__item > a{
+        position: relative;
+        left: 25px;
     }
-}
+
+    .submenu{
+        background-color: var(--header-color);
+        display: none; /* aca pana flex */
+    }
+
+    .cta{
+        position: absolute;
+        left: 0;
+        top: 233px;
+        display: block; /* aca pana block */
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.5s ease 0s;
+    }
+
+    #btn-contacto{
+        width: 100vw;
+        padding: 16px 0px;
+    }
+
+    .show{
+        visibility: visible;
+        opacity: 1; 
+    }
+} 
