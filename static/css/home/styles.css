@@ -1,0 +1,32 @@
+.slider{
+    width: 100%;
+    position: relative;
+    height: auto;
+}
+
+.slider-image{
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.s-active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.s-arrow{
+    position: absolute;
+    height: 40px;
+    top: calc(50% - 20px);
+    z-index: 999;
+    background-color: rgba(255,255,255,0.1);
+}
+#a-left{
+    left: 10px;
+}
+#a-right{
+    right: 10px;
+}

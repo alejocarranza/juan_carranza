@@ -14,178 +14,6 @@
     --second-color-hover: #079e83;
 }
 
-/* *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: var(--back-color);
-    font-family: "Montserrat", sans-serif;
-    color: var(--font-color);
-}
-
-header *{
-    background-color: var(--header-color);
-}
-
-.nav__links li, .nav__links li a, #btn-contacto{
-    font-weight: 500;
-    font-size: 16px;
-    text-decoration: none;
-}
-
-header{
-    display: flex;
-    align-items: center;
-    background-color: var(--header-color);
-    border-bottom: 3.5px solid var(--second-color);
-}
-
-#btn-contacto{
-    background-color: var(--second-color);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-
-#btn-contacto:hover{
-    background-color: var(--second-color-hover);
-}
-
-#nav-ul-casas{
-    display: none;
-}
-
-@media screen and (min-width: 660px) {
-
-    header{
-        justify-content: flex-end;
-        padding: 30px 10%;
-    }
-
-    header *{
-        background-color: var(--header-color);
-    }
-
-    .logo{
-        height: 35px;
-        cursor: pointer;
-        margin-right: auto;
-    }
-
-    .nav__links{
-        list-style: none;
-    }
-
-    .nav__links > li{
-        display: inline-block;
-        padding: 0px 20px;
-    }
-
-    .nav__links > li > a{
-        transition: all 0.3s ease 0s;
-    }
-
-    .nav__links > li > a:hover{
-        color: var(--second-color-hover);
-    }
-
-    #btn-contacto{
-        border-radius: 50px;
-        margin-left: 20px;
-        padding: 9px 25px;    
-    }
-
-    #hamburguesa{
-        display: none;
-    }
-
-    #nav-ul-casas{
-        position: absolute;
-        right: calc(200px + 10%);
-        top: 59px;
-        flex-direction: column;
-        border-radius: 8px;
-        list-style: none;
-    }
-
-    #nav-ul-casas > li:first-child{
-        border-radius: 8px 8px 0 0;
-    }
-    #nav-ul-casas > li:last-child{
-        border-radius: 0 0 8px 8px;
-    }
-
-    #nav-ul-casas > li:hover{
-        background-color: var(--header-color-hover);
-        cursor: pointer;
-    }
-    #nav-ul-casas > li:hover > a{
-        background-color: var(--header-color-hover);
-    }
-
-    #nav-ul-casas > li > a{
-        padding: 10px 60px;
-    }
-}
-
-@media (max-width: 659px) {
-    .logo{
-        height: 30px;
-    }
-
-    #hamburguesa{
-        width: 35px;
-    }
-
-    header{
-        justify-content: space-between;
-        padding: 20px 10%;
-    }
-
-    #nav{
-        position:absolute;
-        top: 50px;
-        right: 0;
-        top: 78.5px;
-    }
-
-    .nav__links{
-        list-style: none;
-        text-align: center;
-    }
-
-    .nav__links > li{
-        padding: 30px 0px;
-        width: 100vw;
-        border-bottom: 1px solid var(--second-color);
-        transition: all 0.3s ease 0s;
-    }
-    .nav__links > li > a{
-        transition: all 0.3s ease 0s;
-    }
-
-    .nav__links > li:hover{
-        background-color: var(--header-color-hover);
-        cursor: pointer;
-    }
-    .nav__links > li:hover > a{
-        background-color: var(--header-color-hover);
-        cursor: pointer;
-    }
-
-    #btn-contacto{
-        position: absolute;
-        width: 100vw;
-        padding: 30px 0;
-        top: calc(78.5px + 30px*2*3 + 16px*3 + 12px);
-    }
-
-    #nav, #btn-contacto{
-        transition: all 0.4s ease-in 0s;
-        left: auto;     
-        right: 100vw;    
-    }
-} */
 #btn-menu{
     display: none;
 }
@@ -327,12 +155,14 @@ header{
     .menu, .submenu{
         list-style: none;
         flex-direction: column;
-        width: 100%;
+        width: 100vw;
         text-align: center;
         display: flex; /* aca pana flex */
         transition: all 0.5s ease 0s;
         visibility: hidden;
         opacity: 0;
+        z-index: 1000;
+        position: relative;
     }
 
     .menu__item, .submenu__item{
@@ -351,12 +181,13 @@ header{
 
     .submenu__item > a{
         position: relative;
-        left: 25px;
+        left: 12px;
     }
 
     .submenu{
         background-color: var(--header-color);
         display: none; /* aca pana flex */
+        transition: all 0.3s ease 0s;
     }
 
     .cta{
@@ -367,6 +198,7 @@ header{
         visibility: hidden;
         opacity: 0;
         transition: all 0.5s ease 0s;
+        z-index: 1000;
     }
 
     #btn-contacto{
@@ -374,8 +206,19 @@ header{
         padding: 16px 0px;
     }
 
+    .submenu-btn{
+        padding: 0px 37vw;
+    }
+
+    .flex{
+        display: flex;
+    }
     .show{
         visibility: visible;
         opacity: 1; 
+    }
+    .downer{
+        transition: all 0s;
+        top: 437px;
     }
 } 

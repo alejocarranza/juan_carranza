@@ -1,13 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} Home {% endblock %}
 
+{% block style %} <link rel="stylesheet" href="{% static 'css/home/styles.css' %}"> {% endblock %}
 
 {% block content %} 
 
+<div id="slider">
+    <i id="a-left" class="s-arrow fa-solid fa-circle-chevron-left" style="--fa-primary-color: gold;"></i>
+    <!-- <i id="a-left" class="s-arrow fa-solid fa-chevron-left"></i> -->
+    <img class="slider-image" src="https://placeimg.com/300/200/tech" alt="#">
+    <img class="slider-image s-active" src="https://placeimg.com/300/200/animals" alt="#">
+    <img class="slider-image" src="https://placeimg.com/300/200/people" alt="#">
+    <img class="slider-image" src="https://placeimg.com/300/200/arch" alt="#">
+    <i id="a-right" class="s-arrow fa-solid fa-circle-chevron-right"></i>
+    <!-- <i id="a-right" class="s-arrow fa-solid fa-chevron-right"></i> -->
+</div>
 
-<br><br><br>
-<h1>Prueba</h1>
 
 
 
@@ -15,7 +25,7 @@
 
 
 
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
@@ -23,3 +33,5 @@
 
 
 {% endblock %}
+
+{% block script %} <script src="{% static 'js/home/script.js' %}"></script> {% endblock %}
