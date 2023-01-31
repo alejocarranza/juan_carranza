@@ -132,6 +132,10 @@ header{
     #btn-contacto:hover{
         background-color: var(--second-color-hover);
     }
+
+    #down{
+        padding-left: 8px;
+    }
 }
 
 @media (max-width: 800px){
@@ -150,12 +154,13 @@ header{
         left: 0px;
         top: 77.4px;
         padding: 0;
+        width: 100%;
     }
 
     .menu, .submenu{
         list-style: none;
         flex-direction: column;
-        width: 100vw;
+        width: 100%;
         text-align: center;
         display: flex; /* aca pana flex */
         transition: all 0.5s ease 0s;
@@ -167,7 +172,7 @@ header{
 
     .menu__item, .submenu__item{
         background-color: var(--header-color-hover);
-        width: 100vw;
+        width: 100%;
         padding: 16px 0px;
         border-bottom: 1px solid var(--header-submenu-separator);
     }
@@ -199,26 +204,28 @@ header{
         opacity: 0;
         transition: all 0.5s ease 0s;
         z-index: 1000;
+        width: 100%;
     }
 
     #btn-contacto{
-        width: 100vw;
+        width: 100%;
         padding: 16px 0px;
     }
 
     .submenu-btn{
         padding: 0px 37vw;
     }
-
-    .flex{
-        display: flex;
-    }
-    .show{
-        visibility: visible;
-        opacity: 1; 
-    }
-    .downer{
-        transition: all 0s;
-        top: 437px;
-    }
 } 
+
+
+.flex{
+    display: flex;
+}
+.show{
+    visibility: visible !important;
+    opacity: 1 !important; 
+}
+.downer{
+    transition: all 0s;
+    top: 437px;
+}

@@ -1,32 +1,51 @@
-.slider{
-    width: 100%;
+#slider{
+    width: 97,6vw;
+    height: 65.06vw;
     position: relative;
-    height: auto;
 }
 
 .slider-image{
     width: 100%;
-    transition: all 0.5s ease-in-out;
+    transition: all .7s ease-in;
     position: absolute;
     opacity: 0;
     visibility: hidden;
+    clip-path: none;
 }
 
 .s-active{
     opacity: 1;
     visibility: visible;
+    z-index: 998;
 }
 
 .s-arrow{
+    transition: all 0.3s ease 0s;
     position: absolute;
-    height: 40px;
     top: calc(50% - 20px);
+    height: 40px;
     z-index: 999;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.5);
 }
 #a-left{
     left: 10px;
 }
 #a-right{
     right: 10px;
+}
+
+@media (min-width: 800px){
+    .slider-image{
+        clip-path: inset(50px 0);
+    }
+
+    .s-arrow{
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    #slider:hover > .s-arrow{
+        visibility: visible;
+        opacity: 1;
+    }
 }

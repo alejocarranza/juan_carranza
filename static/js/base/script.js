@@ -60,6 +60,17 @@ window.addEventListener("DOMContentLoaded", ()=>{
         };
         funcionalidadBtnSubmenu();
 
+        // Al tocar el "li" se manda al "a" interior
+        setTimeout(()=>{
+            const $menu= d.getElementsByClassName("menu")[0];
+
+            const mandarLink= $li=>{
+                location.href= $li.firstElementChild.getAttribute("href");
+            };
+
+            $menu.children[0].addEventListener("click", ()=> mandarLink($menu.children[0]));
+            $menu.children[2].addEventListener("click", ()=> mandarLink($menu.children[2]));
+        }, 0)
     })(document);
     
 });
