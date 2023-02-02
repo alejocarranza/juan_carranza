@@ -1,10 +1,4 @@
 :root{
-    /* --back-color: #333439;
-    --font-color: #edf0f1;
-    --header-color: rgb(24, 24, 24);
-    --header-color-hover: rgb(35, 35, 35);
-    --second-color: #0088a9;
-    --second-color-hover: rgba(0, 136, 169, 0.8); */
     --back-color: #ececec;
     --font-color: black;
     --header-color: #949ba2;
@@ -228,4 +222,4 @@ header{
 .downer{
     transition: all 0s;
     top: 437px;
-}
+}  
