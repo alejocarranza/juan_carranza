@@ -1,3 +1,4 @@
+/* Basicos del slider */
 #slider{
     width: 100%;
     position: relative;
@@ -23,7 +24,7 @@
     position: absolute;
     height: 40px;
     z-index: 999;
-    background-color: rgba(255,255,255,0.5);
+    background:linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0.2), rgba(0,0,0,0));
 }
 #a-left{
     left: 10px;
@@ -31,67 +32,51 @@
 #a-right{
     right: 10px;
 }
-
-@media(max-width: 500px){
+ /* El slider responsive */
+@media(max-width: 499px){
     .slider-image{
-        clip-path: inset(0 0 0 160vw);
-        width: calc(100% + 160vw);
-        left: -160vw;
+        clip-path: inset(0 0 0 200vw);
+        width: calc(100% + 200vw);
+        left: -200vw;
     }
 
     .s-arrow{
-        top: calc(64vw - 20px);
+        top: calc(60vw - 20px);
+    }
+}
+@media (min-width: 500px) and (max-width: 799px){
+    .slider-image{
+        clip-path: inset(0 0 0 100vw);
+        width: calc(100% + 100vw);
+        left: -100vw;
+    }
+
+    .s-arrow{
+        top: calc(40vw - 20px);
+    }
+}
+@media (min-width: 800px) and (max-width: 1099px){
+    .slider-image{
+        clip-path: inset(0 0 0 55vw);
+        width: calc(100% + 55vw);
+        left: -55vw;
+    }
+
+    .s-arrow{
+        top: calc(31vw - 20px);
+    }
+}
+@media (min-width: 1100px){
+    .s-arrow{
+        top: calc(19.52vw - 20px);
+        visibility: hidden;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    #slider:hover > .s-arrow{
+        visibility: visible;
+        opacity: 1;
     }
 }
 
-@media (max-width: 1099px){
-    @media (max-width: 799px){
-        .slider-image{
-            clip-path: inset(0 0 0 110vw);
-            width: calc(100% + 110vw);
-            left: -110vw;
-        }
-    
-        .s-arrow{
-            top: calc(44vw - 20px);
-        }
-    }
-    @media (min-width: 800px){
-        .slider-image{
-            clip-path: inset(0 0 0 85vw);
-            width: calc(100% + 85vw);
-            left: -85vw;
-        }
-    
-        .s-arrow{
-            top: calc(34vw - 20px);
-        }
-    }
-}
-
-@media (min-width: 800px){
-    @media (max-width: 1099px){
-        .slider-image{
-            clip-path: inset(0 0 0 55vw);
-            width: calc(100% + 55vw);
-            left: -55vw;
-        }
-
-        .s-arrow{
-            top: calc(22vw - 20px);
-        }
-    }
-    @media (min-width: 1100px){
-        .s-arrow{
-            top: calc(19.52vw - 20px);
-            visibility: hidden;
-            opacity: 0;
-            cursor: pointer;
-        }
-    
-        #slider:hover > .s-arrow{
-            visibility: visible;
-            opacity: 1;
-        }
-    }
-}

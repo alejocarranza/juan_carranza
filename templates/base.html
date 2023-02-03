@@ -47,7 +47,21 @@
         </header>
 
         {% block content %} {% endblock %}
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+        <div id="contact">
+            <form action="/contacto/" method="post" id="form-contact"> {% csrf_token %}
+                <h3 id="c-title"> Contacto </h3>
+                <input class="c-input" type="text" name="nombre" placeholder="Nombre y Apellido">
+                <input class="c-input" type="text" name="mail" placeholder="E-mail">
+                <input class="c-input" type="text" name="asunto" placeholder="Asunto" >
+                <textarea id="mensaje" class="c-input" name="mensaje" placeholder="Mensaje..."></textarea>
+                <input id="c-send-btn" class="c-input"  type="submit" value="Enviar">
+            </form>
+        </div>
+
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <footer>
             
         </footer>

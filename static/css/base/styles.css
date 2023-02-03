@@ -1,5 +1,6 @@
 :root{
-    --back-color: #ececec;
+    --back-color: rgb(250,250,250);
+    --back-color-hover: #dfe0df;
     --font-color: black;
     --header-color: #949ba2;
     --header-color-hover: rgb(175, 180, 186);
@@ -8,10 +9,10 @@
     --second-color-hover: #079e83;
 }
 
+/* HEADER */
 #btn-menu{
     display: none;
 }
-
 
 body{
     background-color: var(--back-color);
@@ -210,8 +211,6 @@ header{
         padding: 0px 37vw;
     }
 } 
-
-
 .flex{
     display: flex;
 }
@@ -223,3 +222,53 @@ header{
     transition: all 0s;
     top: 437px;
 }  
+
+
+/* CONTACTO */
+#contact{
+    width: 100%;
+    position: relative;
+    height: fit-content;
+    border-top: 4px solid var(--header-submenu-separator);
+    border-bottom: 4px solid var(--header-submenu-separator);
+    background-color: var(--back-color-hover);
+}
+
+#form-contact{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 55%;
+    width: 30%;
+    background-color: var(--header-color);
+    padding: 22px 0;
+    border-radius: 10px;
+    margin: 100px 0;
+}
+
+#c-title{
+    color: var(--back-color);
+}
+
+.c-input{
+    width: calc(100% - 20%);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--header-color);
+}
+
+#mensaje{
+    resize: vertical;
+    min-height: 80px;
+    max-height: 450px;
+}
+
+#c-send-btn{
+    background-color: var(--second-color);
+}
+#c-send-btn:hover{
+    background-color: var(--second-color-hover);
+    cursor: pointer;
+}
