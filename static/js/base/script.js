@@ -1,6 +1,6 @@
-window.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", ()=>{
 
-    ((d)=>{ // navbar compu
+    (d=>{ // navbar compu
         // Autimatizo que al tocar el li se realiza la accion del a interior (submenu en +800px)
         $submenu= d.getElementsByClassName("submenu__item");
 
@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
         };
     })(document);
         
-    ((d)=>{ // navbar celu
+    (d=>{ // navbar celu
         // Lógica para ver cuando se ejecutan los eventos responsive
         const btnsMenu= function(){
             if (innerWidth<= 800){
@@ -73,5 +73,37 @@ window.addEventListener("DOMContentLoaded", ()=>{
         }, 0)
     })(document);
     
+    (d=>{ // Si te moves dentro de la misma pagina hace un efecto de transicion
+        d.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              d.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+              });
+            });
+          });
+    })(document);
+
+    ((d, w)=>{ // Transicion al aparecer en pantalla
+        
+        var elements = d.querySelectorAll('body > *');
+        elements.forEach(function(element) {
+            var rect = element.getBoundingClientRect();
+            if (rect.top < w.innerHeight) {
+                element.style.transition = 'opacity 1s ease-in-out';
+                element.style.opacity = 1;
+            } else {
+                element.style.opacity = 0;
+                element.style.transition = 'opacity 1s ease-in-out';
+                w.addEventListener('scroll', function() {
+                    rect = element.getBoundingClientRect();
+                    if (rect.top < w.innerHeight) {
+                        element.style.opacity = 1;
+                    };
+                });
+            };
+        });
+          
+    })(document, window);
 });
 

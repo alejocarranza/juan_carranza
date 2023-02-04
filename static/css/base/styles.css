@@ -232,6 +232,42 @@ header{
     border-top: 4px solid var(--header-submenu-separator);
     border-bottom: 4px solid var(--header-submenu-separator);
     background-color: var(--back-color-hover);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:stretch;
+    padding-left: 15%;
+}
+
+#c-left{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+}
+
+#c-left *{
+    padding: 6px 0;
+}
+
+.c-image{
+    width: 20px;
+}
+
+.c-inline{
+    display: flex;
+}
+
+.c-inline-text{
+    margin-left: 16px;
+}
+.m-left-36px{
+    margin-left: 36px;
+}
+
+#c-first{
+    padding-top: 0px;
 }
 
 #form-contact{
@@ -239,16 +275,16 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
-    left: 55%;
-    width: 30%;
+    width: 40%;
     background-color: var(--header-color);
     padding: 22px 0;
     border-radius: 10px;
     margin: 100px 0;
+    margin-left: 10%;
 }
 
 #c-title{
-    color: var(--back-color);
+    color: var(--font-color);
 }
 
 .c-input{
@@ -271,4 +307,38 @@ header{
 #c-send-btn:hover{
     background-color: var(--second-color-hover);
     cursor: pointer;
+}
+
+@media (max-width: 970px){
+    /* Hago el contacto responsive */
+    #contact{
+        flex-direction: column;
+        padding: 0;
+    }
+
+    #contact > *{
+        width: 60%;
+        margin-left: 0;
+    }
+
+    #c-left{
+        margin-top: 45px;
+    }
+
+    #c-left > *{
+        left: 20px;
+    }
+
+    #form-contact{
+        margin-top: 20px;
+        margin-bottom: 60px;
+    }
+
+    .c-input{
+        padding: 6px;
+    }
+
+    #mensaje{
+        min-height: 50px;
+    }
 }

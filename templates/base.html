@@ -43,13 +43,38 @@
                 </ul>
             </nav>
 
-            <a href="#" class="cta downer"><button id="btn-contacto">Contacto</button></a>
+            <a id="btn-contacto-container" href="#contact" class="cta downer"><button id="btn-contacto">Contacto</button></a>
         </header>
 
         {% block content %} {% endblock %}
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
         <div id="contact">
+            <div id="c-left">
+                <h2> Dejanos tu consulta! </h2>
+                <p> Responderemos a la brevedad. </p>
+
+                <h4> Nuestros horarios, días y medios de atención. </h4>
+
+                <div class="c-inline">
+                    <img class="c-image" src="{{ MEDIA_ROOT }}/base/contacto/reloj.png" alt="reloj">
+                    <h5 id="c-last" class="c-inline-text"> Lunes a viernes </h5>
+                </div>
+                <p id="c-first" class="m-left-36px"> de 08:00 a 12:00 y 13:30 a 17:00 </p>
+                <h5 class="m-left-36px"> Sábados </h5>
+                <p class="m-left-36px"> de 08:00 a 11:00 </p>
+
+                <div class="c-inline">
+                    <img class="c-image" src="{{ MEDIA_ROOT }}/base/contacto/mensaje.png" alt="mensaje">
+                    <p class="c-inline-text"> (+54) 9 3515 12-1570 </p>
+                </div>
+
+                <div class="c-inline">
+                    <img class="c-image" src="{{ MEDIA_ROOT }}/base/contacto/mail.png" alt="mail">
+                    <p class="c-inline-text"> jfcar000@gmail.com </p>
+                </div>
+            </div>
+
             <form action="/contacto/" method="post" id="form-contact"> {% csrf_token %}
                 <h3 id="c-title"> Contacto </h3>
                 <input class="c-input" type="text" name="nombre" placeholder="Nombre y Apellido">
