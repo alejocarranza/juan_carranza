@@ -6,7 +6,12 @@
     --header-color-hover: rgb(175, 180, 186);
     --header-submenu-separator: rgb(190, 195, 201);
     --second-color: #09cda9;
-    --second-color-hover: #079e83;
+    --second-color-hover: #09bc9b;
+    --footer-color: #b61500;
+}
+
+ul{
+    list-style: none;
 }
 
 /* HEADER */
@@ -68,6 +73,9 @@ header{
     border: none;
 }
 
+.container-submenu:hover{
+    cursor: pointer;
+}
 
 @media (min-width: 800px) {
     /* La hago hovered */
@@ -230,7 +238,6 @@ header{
     position: relative;
     height: fit-content;
     border-top: 4px solid var(--header-submenu-separator);
-    border-bottom: 4px solid var(--header-submenu-separator);
     background-color: var(--back-color-hover);
     display: flex;
     flex-direction: row;
@@ -341,4 +348,61 @@ header{
     #mensaje{
         min-height: 50px;
     }
+}
+
+
+/* FOOTER */
+footer{
+    height: auto;
+}
+
+/* First part */
+#f-first{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: 45px 8%;
+    background-color: var(--font-color);
+    color: var(--back-color);
+    font-size: .9em;
+}
+
+#f-first > *{
+    width: 25%;
+}
+
+
+.f-section > h3{
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+
+.f-text{
+    font-size: 0.9em;
+}
+
+@media (max-width: 900px){
+    #f-first{
+        flex-direction: column;
+    }
+
+    #f-first-first{
+        padding-top: 0 !important;
+    }
+    #f-first > *{
+        padding-top: 35px;
+        width: 70%;
+    }
+}
+
+
+/* Second part */
+#f-last{
+    padding: 6px;
+    background-color: var(--footer-color);
+    color: var(--back-color);
+    font-size: 0.8em;
+    text-align: center;
 }

@@ -43,6 +43,8 @@ INSTALLED_APPS = [
 
     # mis apps
     'home.apps.HomeConfig',
+    'nosotros.apps.NosotrosConfig',
+    'casas.apps.CasasConfig',
 ]
 
 MIDDLEWARE = [
