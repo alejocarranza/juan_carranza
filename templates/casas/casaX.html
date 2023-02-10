@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ casa.nombre }} {% endblock %}
+{% block style %} <link rel="stylesheet" href="{% static 'css/casas/casaX/styles.css' %}"> {% endblock %}
+
+{% block content %}
+
+<main>
+    <div id="casa-left">
+        <div>
+            <h3> {{casa.direccion}} </h3>
+            <h2> {{casa.nombre}} </h2>
+            <p> {{casa.descripcion_corta}} </p>
+        </div>
+    </div>
+    
+
+    <img id="casa-right" src="{{ casa.imagenes.first.imagen.url }}" alt="Imagen de la casa">
+
+    <!-- {% for i in casa.imagenes.all %}
+    <img src="{{ i.imagen.url }}" alt="Imagen de la casa">
+    {% endfor %} -->
+</main>
+
+<section id="house-description">
+    <div class="house-description-item" id="description-right">
+        <h3> ¿Porque vivir en El Terrón? </h3>
+        <p> El Terrón es un oasis de privacidad y lujo exclusivo. Con seguridad 24/7, amplios espacios verdes y servicios de alta calidad, tendrás todo lo que necesitas para vivir una vida de comodidad y tranquilidad. </p>
+    </div>
+    <div class="house-description-item" id="description-left">
+        <h3> Información </h3>
+        <p> {{casa.descripcion_larga}} </p>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

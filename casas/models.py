@@ -19,12 +19,17 @@ class Barrio(models.Model):
 
 class Imagen(models.Model):
     imagen= models.ImageField(upload_to= "casas/imagenes/")
+    slug= models.SlugField(max_length=150)
 
     class Meta:
         verbose_name= "imagen"
         verbose_name_plural= "imagenes"
 
+    def __str__(self):
+        return str(self.slug)
+
 class Casa(models.Model):
+    nombre= models.CharField(max_length=150)
     direccion= models.ForeignKey(Barrio, on_delete=models.CASCADE)
     slug= models.SlugField(max_length=150)
     lote= models.IntegerField(null=True, blank=True)

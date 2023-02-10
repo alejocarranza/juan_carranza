@@ -1,0 +1,11 @@
+:root{
+    --back-color: rgb(255,255,255);
+    --back-color-hover: #dfe0df;
+    --font-color: black;
+    --font-secondary-color: #086436;
+    --header-color: #1e8036/*#949ba2*/;
+    --header-color-hover: #02931f/*rgb(175, 180, 186)*/;
+    --header-submenu-separator: #00a020/*rgb(190, 195, 201)*/;
+    --second-color: #09cda9;
+    --second-color-hover: #09bc9b;
+}

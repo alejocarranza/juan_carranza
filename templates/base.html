@@ -29,12 +29,12 @@
             </span> 
             <nav id="nav">
                 <ul class="menu">
-                    <li class="menu__item"><a href="#" class="menu__link">Inicio</a></li>
+                    <li class="menu__item"><a href="/" class="menu__link">Inicio</a></li>
                     <li class="menu__item container-submenu">
                         <a class="submenu-btn menu__link">Casas</a><i id="down" class="fa-solid fa-caret-down"></i>
                         <ul class="submenu flex show">
-                            <li class="submenu__item"><a href="#" class="menu__link">Casa 1</a></li>
-                            <li class="submenu__item"><a href="#" class="menu__link">Casa 2</a></li>
+                            <li class="submenu__item"><a href="{% url 'casas' 'el-terron-422' %}" class="menu__link">El Terrón 422</a></li>
+                            <li class="submenu__item"><a href="{% url 'casas' 'el-terron-136' %}" class="menu__link">El Terrón 136</a></li>
                             <li class="submenu__item"><a href="#" class="menu__link">Casa 3</a></li>
                             <li class="submenu__item"><a href="#" class="menu__link">Casa 4</a></li>
                         </ul>
@@ -49,7 +49,7 @@
         {% block content %} {% endblock %}
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-        <div id="contact">
+        <section id="contact">
             <div id="c-left">
                 <h2> Dejanos tu consulta! </h2>
                 <p> Responderemos a la brevedad. </p>
@@ -83,7 +83,7 @@
                 <textarea id="mensaje" class="c-input" name="mensaje" placeholder="Mensaje..."></textarea>
                 <input id="c-send-btn" class="c-input"  type="submit" value="Enviar">
             </form>
-        </div>
+        </section>
 
 
         <footer>
