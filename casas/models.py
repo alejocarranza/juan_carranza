@@ -3,10 +3,12 @@ from django.db import models
 # Create your models here.
 
 class Barrio(models.Model):
-    nombre= models.CharField(max_length= 80)
-    direccion= models.CharField(max_length=200)
+    nombre= models.CharField(max_length= 50)
+    direccion= models.CharField(max_length=100)
     privado= models.BooleanField(default= "True")
     slug= models.SlugField(max_length=150)
+    descripcion_corta= models.TextField(max_length=100)
+    descripcion_larga= models.TextField(max_length=300)
     created= models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -19,6 +21,14 @@ class Barrio(models.Model):
 
 class Imagen(models.Model):
     imagen= models.ImageField(upload_to= "casas/imagenes/")
+    opciones= (
+        ("principal", "principal"),
+        ("exteriores", "exteriores"),
+        ("interiores", "interiores"),
+        ("amenities", "amenities"),
+        ("planos", "planos"),
+    )
+    opcion= models.CharField(max_length= 15, choices= opciones, default= "exteriores")
     slug= models.SlugField(max_length=150)
 
     class Meta:
@@ -29,15 +39,15 @@ class Imagen(models.Model):
         return str(self.slug)
 
 class Casa(models.Model):
-    nombre= models.CharField(max_length=150)
+    nombre= models.CharField(max_length=800)
     direccion= models.ForeignKey(Barrio, on_delete=models.CASCADE)
     slug= models.SlugField(max_length=150)
     lote= models.IntegerField(null=True, blank=True)
     manzana= models.IntegerField(null=True, blank=True)
     imagenes= models.ManyToManyField(Imagen)
 
-    descripcion_corta= models.TextField(max_length=1000)
-    descripcion_larga= models.TextField(max_length=4000)
+    descripcion_corta= models.TextField(max_length=100)
+    descripcion_larga= models.TextField(max_length=300)
 
     created= models.DateTimeField(auto_now_add=True)
 

@@ -14,27 +14,87 @@
             <p> {{casa.descripcion_corta}} </p>
         </div>
     </div>
-    
-
-    <img id="casa-right" src="{{ casa.imagenes.first.imagen.url }}" alt="Imagen de la casa">
-
-    <!-- {% for i in casa.imagenes.all %}
-    <img src="{{ i.imagen.url }}" alt="Imagen de la casa">
-    {% endfor %} -->
+    <img id="casa-right" src="{{ imagen_principal }}" alt="Imagen de la casa">
 </main>
 
 <section id="house-description">
     <div class="house-description-item" id="description-right">
         <h3> ¿Porque vivir en El Terrón? </h3>
         <p> El Terrón es un oasis de privacidad y lujo exclusivo. Con seguridad 24/7, amplios espacios verdes y servicios de alta calidad, tendrás todo lo que necesitas para vivir una vida de comodidad y tranquilidad. </p>
+        <p class="house-info">+ más info</p>
     </div>
     <div class="house-description-item" id="description-left">
         <h3> Información </h3>
         <p> {{casa.descripcion_larga}} </p>
+        <p class="house-info">+ más info</p>
     </div>
 </section>
 
+<!-- <section id="house-options">
+    <div id="house-options-images">
+        <h3 class="house-options-active">Exteriores</h3>
+        <h3>Interiores</h3>
+        <h3>Amenities</h3>
+        <h3>Planos</h3>
+    </div>
 
+    <div id="house-images">
+        {% for i in imagenes_exteriores %}
+    
+        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+    
+        {% empty %}
+    
+        <p> No hay imagenes del interior de la casa </p>
+    
+        {% endfor %}
+    </div>
+    
+</section> -->
+
+
+<section id="house-options">
+    <div id="house-options-images">
+        <h3 class="house-options-active">Exteriores</h3>
+        <h3>Interiores</h3>
+        <h3>Amenities</h3>
+        <h3>Planos</h3>
+    </div>
+  
+    <div id="exteriores" class="house-images active">
+        {% for i in imagenes_exteriores %}
+        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+        {% empty %}
+        <p>No hay imágenes exteriores</p>
+        {% endfor %}
+    </div>
+  
+    <div id="interiores" class="house-images">
+        {% for i in imagenes_interiores %}
+        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+        {% empty %}
+        <p>No hay imágenes interiores</p>
+        {% endfor %}
+    </div>
+  
+    <div id="amenities" class="house-images">
+        {% for i in imagenes_amenities %}
+        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+        {% empty %}
+        <p>No hay imágenes de amenities</p>
+        {% endfor %}
+    </div>
+  
+    <div id="planos" class="house-images">
+        {% for i in imagenes_planos %}
+        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+        {% empty %}
+        <p>No hay imágenes de planos</p>
+        {% endfor %}
+    </div>
+  </section>
 
 
 {% endblock %}
+
+{% block script %} <script src="{% static 'js/casas/casaX/script.js' %}"></script> {% endblock %}
