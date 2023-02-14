@@ -23,9 +23,9 @@ class Imagen(models.Model):
     imagen= models.ImageField(upload_to= "casas/imagenes/")
     opciones= (
         ("principal", "principal"),
+        ("avance_de_obra", "avance_de_obra"),
         ("exteriores", "exteriores"),
         ("interiores", "interiores"),
-        ("amenities", "amenities"),
         ("planos", "planos"),
     )
     opcion= models.CharField(max_length= 15, choices= opciones, default= "exteriores")

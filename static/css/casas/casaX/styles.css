@@ -130,6 +130,9 @@ main > *{
 .house-images {
     display: none;
     max-width: 100%;
+    flex-wrap: wrap;
+    padding: 10px 5%;
+    justify-content: center;
 }
 
 .house-images.active {
@@ -138,10 +141,57 @@ main > *{
 }
 
 .house-images img {
-    transition: transform 0.5s ease-in-out;
-    transform: scale(0.7);
+    transition: transform 0.3s ease-in;
+    transform: scale(0.9);
+    margin: 10px;
 }
 
 .house-images.active img {
     transform: scale(1);
+}
+
+
+/* SLIDER SECTION */
+#avances-obra{
+    position: relative;
+    height: fit-content;
+    /* height: calc(75vh + 18px + 20px + 1.3em + 30px); */
+    width: 100%;
+}
+
+#avances-obra h2{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    background-color: var(--header-color);
+    color: var(--back-color);
+    font-size: 1.3em;
+    font-weight:lighter;   
+    margin: 20px 0;
+    text-align: center; 
+}
+
+#avances-slider{
+    position: relative;
+    width: 100%;
+    height: 75vh;;
+}
+
+#avances-slider img{
+    width: 75%;
+    height: 75vh;
+    object-fit: cover;
+    top: 0px;
+    position: absolute;
+    margin: 0 12.5%;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease-in;
+}
+
+.sa-active{
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 998 !important;
 }

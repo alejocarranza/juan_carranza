@@ -30,37 +30,21 @@
     </div>
 </section>
 
-<!-- <section id="house-options">
-    <div id="house-options-images">
-        <h3 class="house-options-active">Exteriores</h3>
-        <h3>Interiores</h3>
-        <h3>Amenities</h3>
-        <h3>Planos</h3>
-    </div>
-
-    <div id="house-images">
-        {% for i in imagenes_exteriores %}
-    
-        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
-    
-        {% empty %}
-    
-        <p> No hay imagenes del interior de la casa </p>
-    
-        {% endfor %}
-    </div>
-    
-</section> -->
-
-
 <section id="house-options">
     <div id="house-options-images">
-        <h3 class="house-options-active">Exteriores</h3>
+        <h3 class="house-options-active">Planos</h3>
+        <h3>Exteriores</h3>
         <h3>Interiores</h3>
-        <h3>Amenities</h3>
-        <h3>Planos</h3>
     </div>
   
+    <div id="planos" class="house-images">
+        {% for i in imagenes_planos %}
+        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+        {% empty %}
+        <p>No hay imágenes de planos</p>
+        {% endfor %}
+    </div>
+
     <div id="exteriores" class="house-images active">
         {% for i in imagenes_exteriores %}
         <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
@@ -76,24 +60,17 @@
         <p>No hay imágenes interiores</p>
         {% endfor %}
     </div>
-  
-    <div id="amenities" class="house-images">
-        {% for i in imagenes_amenities %}
-        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
-        {% empty %}
-        <p>No hay imágenes de amenities</p>
-        {% endfor %}
-    </div>
-  
-    <div id="planos" class="house-images">
-        {% for i in imagenes_planos %}
-        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
-        {% empty %}
-        <p>No hay imágenes de planos</p>
-        {% endfor %}
-    </div>
-  </section>
+</section>
 
+<section id="avances-obra">
+    <h2> Avances de obra </h2>
+    <div id="avances-slider">
+        <img id="sa-first" class="avances-slider-image sa-active" src="https://placeimg.com/1100/600/tech" alt="#">
+        <img class="avances-slider-image" src="https://placeimg.com/1100/600/animals" alt="#">
+        <img class="avances-slider-image" src="https://placeimg.com/1100/600/people" alt="#">
+        <img id="sa-last" class="avances-slider-image" src="https://placeimg.com/1100/600/arch" alt="#">
+    </div>
+</section>
 
 {% endblock %}
 
