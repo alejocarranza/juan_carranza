@@ -63,6 +63,7 @@ main > *{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 20px;
 }
 
 .house-description-item{
@@ -92,6 +93,7 @@ main > *{
 
 
 /* SECCION IMAGENES */
+
 #house-options-images{
     width: 100%;
     display: flex;
@@ -167,7 +169,7 @@ main > *{
     color: var(--back-color);
     font-size: 1.3em;
     font-weight:lighter;   
-    margin: 20px 0;
+    margin: 40px 0;
     text-align: center; 
 }
 

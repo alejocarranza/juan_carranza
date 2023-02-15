@@ -65,10 +65,17 @@
 <section id="avances-obra">
     <h2> Avances de obra </h2>
     <div id="avances-slider">
-        <img id="sa-first" class="avances-slider-image sa-active" src="https://placeimg.com/1100/600/tech" alt="#">
-        <img class="avances-slider-image" src="https://placeimg.com/1100/600/animals" alt="#">
-        <img class="avances-slider-image" src="https://placeimg.com/1100/600/people" alt="#">
-        <img id="sa-last" class="avances-slider-image" src="https://placeimg.com/1100/600/arch" alt="#">
+        {% for i in imagenes_avances %}
+        {% if forloop.first %}
+        <img id="sa-first" class="avances-slider-image sa-active" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+        {% elif forloop.last %}
+        <img id="sa-last" class="avances-slider-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+        {% else %}
+        <img class="avances-slider-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+        {% endif %}
+        {% empty %}
+        <p> Vacio </p>
+        {% endfor %}
     </div>
 </section>
 
