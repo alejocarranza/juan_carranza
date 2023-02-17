@@ -42,6 +42,8 @@ addEventListener("DOMContentLoaded", e=>{
 
     })(document);
     
+    // CLICK EN CARD ENVIA A CASA
+    (d=>{
 
-    // Hago el slider responsive
+    })(document);
 });

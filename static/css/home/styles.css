@@ -2,6 +2,7 @@
 #slider{
     width: 100%;
     position: relative;
+    height: 40vw;
 }
 
 .slider-image{
@@ -43,6 +44,10 @@
     .s-arrow{
         top: calc(60vw - 20px);
     }
+
+    #slider{
+        height: 120vw;
+    }
 }
 @media (min-width: 500px) and (max-width: 799px){
     .slider-image{
@@ -54,6 +59,10 @@
     .s-arrow{
         top: calc(40vw - 20px);
     }
+
+    #slider{
+        height: 80vw;
+    }
 }
 @media (min-width: 800px) and (max-width: 1099px){
     .slider-image{
@@ -64,6 +73,10 @@
 
     .s-arrow{
         top: calc(31vw - 20px);
+    }
+
+    #slider{
+        height: 62vw;
     }
 }
 @media (min-width: 1100px){
@@ -80,3 +93,114 @@
     }
 }
 
+
+/* SEGUNDA SECCION */
+#home-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 55px;
+}
+
+#home-text *{
+    color: grey;
+}
+
+#home-text > p{
+    max-width: 570px;
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.8em;
+}
+
+#ht-top{
+    align-items: center;
+    text-align: center;
+}
+
+#ht-top > h2{
+    line-height: 1.4em;
+    color: black;  
+    font-size: 1.55em;
+}
+
+#ht-border-top{
+    display: inline-block;
+    width: 100px;
+    border-top: 1px solid var(--back-color-hover);
+    margin-bottom: 12px;
+}
+
+#ht-border-bottom{
+    display: inline-block;
+    width: 100px;
+    border-bottom: 1px solid var(--back-color-hover);
+    margin-top: 16px;
+}
+
+
+/* SECCION CASAS */
+#home-casas{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#home-casas > h2{
+    width: 100%;
+    padding: 16px 0;
+    text-align: center;
+    background-color: var(--header-color);
+    color: var(--back-color);
+    font-weight: 100;
+    font-size: 1.25em;
+}
+
+#home-casas-cards{
+    margin: 60px 0;
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 420px;
+}
+
+.home-casa-card{
+    border-radius: 8px;
+    background-color: var(--back-color-hover);
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.5s ease;
+    margin: 0 6px;
+    margin-bottom: 97px;
+}
+
+.home-casa-card:hover{
+    box-shadow: 0px 7px 15px rgba(0,0,0,0.35);
+    cursor: pointer;
+}
+.home-casa-card:hover > .casa-card-info{
+    background-color: #b1ab9f;
+}
+
+.casa-card-info{
+    background-color: #C4BDAF;
+    color: white;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    padding: 8px 0;
+    transition: all .5 ease;
+    font-weight: 500;
+}
+
+.home-casa-card > img{
+    flex-basis: 260px;
+}
+
+.casa-card-mas{
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+    padding: 14px 0;
+    font-size: .86em;
+}

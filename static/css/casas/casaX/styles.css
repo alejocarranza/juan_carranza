@@ -159,6 +159,7 @@ main > *{
     height: fit-content;
     /* height: calc(75vh + 18px + 20px + 1.3em + 30px); */
     width: 100%;
+    margin-bottom: 60px;
 }
 
 #avances-obra h2{
