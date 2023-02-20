@@ -141,47 +141,37 @@
 
 /* SECCION CASAS */
 #home-casas{
-    margin-top: 70px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 50px;
+    position: relative;
+    margin-bottom: 50px;
 }
 
 #home-casas > h2{
     width: 100%;
-    padding: 16px 0;
+    padding: 20px 0;
     text-align: center;
     background-color: var(--header-color);
     color: var(--back-color);
     font-weight: 100;
     font-size: 1.25em;
+    margin-bottom: 50px;
 }
 
 #home-casas-cards{
-    margin: 60px 0;
     width: 85%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    height: 420px;
+    height: calc(358px + 1em + .86em);
+    margin: 0 auto;
+    position: relative;
 }
 
 .home-casa-card{
-    border-radius: 8px;
+    width: 260px;
     background-color: var(--back-color-hover);
+    margin: 0 30px;
+    position: absolute;
+    border-radius: 8px;
     box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-    transition: all 0.5s ease;
-    margin: 0 6px;
-    margin-bottom: 97px;
-}
-
-.home-casa-card:hover{
-    box-shadow: 0px 7px 15px rgba(0,0,0,0.35);
-    cursor: pointer;
-}
-.home-casa-card:hover > .casa-card-info{
-    background-color: #b1ab9f;
+    transition: all .3s ease;
 }
 
 .casa-card-info{
@@ -190,12 +180,14 @@
     border-radius: 8px 8px 0 0;
     text-align: center;
     padding: 8px 0;
-    transition: all .5 ease;
-    font-weight: 500;
+    font-weight: 300;
+    font-size: 1em;
 }
 
 .home-casa-card > img{
-    flex-basis: 260px;
+    width: 260px;
+    height: 300px;
+    object-fit: cover;
 }
 
 .casa-card-mas{
@@ -203,4 +195,24 @@
     text-align: center;
     padding: 14px 0;
     font-size: .86em;
+}
+
+.home-casa-card:hover{
+    box-shadow: 0px 7px 15px rgba(0,0,0,0.35);
+    cursor: pointer;
+    transform: translateY(-6px);
+}
+.home-casa-card:hover > .casa-card-info{
+    background-color: #b1ab9f;
+}
+
+.hc-arrow{
+    position: absolute;
+    top: 50%;
+}
+#hc-left{
+    left: 1%;
+}
+#hc-right{
+    right: 1%;
 }

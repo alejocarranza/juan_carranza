@@ -42,8 +42,50 @@ addEventListener("DOMContentLoaded", e=>{
 
     })(document);
     
-    // CLICK EN CARD ENVIA A CASA
-    (d=>{
+    // CASAS DEL HOME
+    ((d, w)=>{
+        // Siempre muestra la cantidad necesaria de imagenes en pantalla (si entran 3, muestra 3. si entran 4, 4. Etc.)
+        function showOnlyNecessary(){
+            const $casasCards= d.getElementsByClassName("home-casa-card"),
+                cardsWidth= w.innerWidth * 85 / 100,
+                cantCards= Math.floor(cardsWidth / 285);
+            
+            let left;
 
-    })(document);
+            for(let i=0; i<$casasCards.length; i++){
+                if(i < cantCards){
+                    left= cardsWidth / cantCards * i + (cardsWidth % 285 / (cantCards * 2)) - 25;
+                    $casasCards[i].style.left= `${left}px`;
+                } else{
+                    $casasCards[i].style.left= 'calc(-15% - 280px)';
+                };
+            };
+        };
+        setTimeout(()=>{
+            showOnlyNecessary();
+        }, 0);
+        w.addEventListener('resize', e=>{
+            showOnlyNecessary();
+        });
+        
+        // Funcionalidad a las flechas
+        const $aLeft= d.getElementById("hc-left"),
+            $aRight= d.getElementById("hc-right");
+
+        function moveRight(){
+            console.log("derecha");
+        };
+        function moveLeft(){
+            console.log("izquierda");
+        };
+
+        $aRight.addEventListener("click", e=>{
+            moveRight();
+        });
+        $aLeft.addEventListener("click", e=>{
+            moveLeft();
+        });
+
+    })(document, window);
 });
+
