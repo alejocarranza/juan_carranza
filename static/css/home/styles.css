@@ -7,6 +7,8 @@
 
 .slider-image{
     width: 100%;
+    height: 40vw;
+    object-fit: cover;
     transition: all .7s ease-in;
     position: absolute;
     opacity: 0;
@@ -39,6 +41,7 @@
         clip-path: inset(0 0 0 200vw);
         width: calc(100% + 200vw);
         left: -200vw;
+        height: 120vw;
     }
 
     .s-arrow{
@@ -54,6 +57,7 @@
         clip-path: inset(0 0 0 100vw);
         width: calc(100% + 100vw);
         left: -100vw;
+        height: 80vw;
     }
 
     .s-arrow{
@@ -69,6 +73,7 @@
         clip-path: inset(0 0 0 55vw);
         width: calc(100% + 55vw);
         left: -55vw;
+        height: 62vw;
     }
 
     .s-arrow{
@@ -209,10 +214,74 @@
 .hc-arrow{
     position: absolute;
     top: 50%;
+    transition: all .3s ease;
+}
+.hc-arrow:hover{
+    cursor: pointer;
+    transform: scale(95%);
 }
 #hc-left{
     left: 1%;
 }
 #hc-right{
     right: 1%;
+}
+
+
+/* COMO CONTACTARNOS? */
+#home-contactarnos{
+    margin-top: 80px;
+}
+
+#home-contactarnos > h2{
+    width: 100%;
+    text-align: center;
+    font-size: 2.2em;
+    color: var(--header-color);
+}
+
+#contact-text{
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    margin: 40px auto 80px auto;
+}
+
+#contact-steps{
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    width: 300%;
+}
+
+.contact-step{
+    margin: 0 1px;
+    background-color: var(--back-color-hover);
+    padding: 30px 24px 40px 24px;
+    text-align: center;
+    width: 100%;
+}
+
+#c-step1{
+    border-radius: 15px 0 0 15px;
+}
+#c-step3{
+    border-radius: 0 15px 15px 0;
+}
+
+.c-step-num{
+    font-size: 2.8em;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: var(--header-color);
+}
+.c-step-title{
+    font-size: 1.3em;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--header-color);
+}
+
+#contact-link{
+    margin-left: 50px;
 }

@@ -9,10 +9,17 @@
 
 <section id="slider">
     <img id="a-left" class="s-arrow" src="{{ MEDIA_ROOT }}home/slider/chevron-left.png" alt="left">
-    <img id="s-first" class="slider-image" src="https://placeimg.com/4000/1600/tech" alt="#">
-    <img class="slider-image s-active" src="https://placeimg.com/4000/1600/animals" alt="#">
-    <img class="slider-image" src="https://placeimg.com/4000/1600/people" alt="#">
-    <img id="s-last" class="slider-image" src="https://placeimg.com/4000/1600/arch" alt="#">
+    {% for slug, casa in casasImagen.items %}
+    {% if forloop.first %}
+    <img id="s-first" class="slider-image s-active" src="{{ casa.imagen_principal.url }}" alt="{{ casa.imagen_principal.slug }}">
+    {% elif forloop.last %}
+    <img id="s-last" class="slider-image" src="{{ casa.imagen_principal.url }}" alt="{{ casa.imagen_principal.slug }}">
+    {% else %}
+    <img class="slider-image" src="{{ casa.imagen_principal.url }}" alt="{{ casa.imagen_principal.slug }}">
+    {% endif %}
+    {% empty %}
+    <p> No hay imágenes </p>
+    {% endfor %}
     <img id="a-right" class="s-arrow" src="{{ MEDIA_ROOT }}home/slider/chevron-right.png" alt="right">
 </section>
 
@@ -30,41 +37,48 @@
     <h2>NUESTRAS CASAS</h2>
     <img id="hc-left" class="hc-arrow" width="40" src="{{ MEDIA_ROOT }}home/slider/chevron-left.png" alt="left">
     <div id="home-casas-cards">
+        {% for slug, casa in casasImagen.items %}
         <div class="home-casa-card">
-            <p class="casa-card-info">CASA 1</p>
-            <img src="https://placeimg.com/360/300/arch" alt="casa1">
+            <p class="casa-card-info">{{casa.nombre}}</p>
+            <img src="{{ casa.imagen_principal.url }}" alt="{{casa.imagen_principal.slug}}">
             <p class="casa-card-mas">CONOCER MÁS</p>
         </div>
-        <div class="home-casa-card">
-            <p class="casa-card-info">CASA 2</p>
-            <img src="https://placeimg.com/260/300/arch" alt="casa2">
-            <p class="casa-card-mas">CONOCER MÁS</p>
-        </div>
-        <div class="home-casa-card">
-            <p class="casa-card-info">CASA 3</p>
-            <img src="https://placeimg.com/260/300/arch" alt="casa3">
-            <p class="casa-card-mas">CONOCER MÁS</p>
-        </div>
-        <div class="home-casa-card">
-            <p class="casa-card-info">CASA 4</p>
-            <img src="https://placeimg.com/260/300/arch" alt="casa4">
-            <p class="casa-card-mas">CONOCER MÁS</p>
-        </div>
-        <div class="home-casa-card">
-            <p class="casa-card-info">CASA 5</p>
-            <img src="https://placeimg.com/260/300/arch" alt="casa5">
-            <p class="casa-card-mas">CONOCER MÁS</p>
-        </div>
-        <div class="home-casa-card">
-            <p class="casa-card-info">CASA 6</p>
-            <img src="https://placeimg.com/260/300/arch" alt="casa6">
-            <p class="casa-card-mas">CONOCER MÁS</p>
-        </div>
+        {% endfor %}
     </div>
     <img id="hc-right" class="hc-arrow" width="40" src="{{ MEDIA_ROOT }}home/slider/chevron-right.png" alt="right">
 </section>
 
-
+<section id="home-contactarnos">
+    <h2> ¿Cómo contactarnos? </h2>
+    <!-- <h2>Contáctanos en tres pasos!</h2> -->
+    <div id="contact-text">
+        <div id="contact-steps">
+            <div class="contact-step" id="c-step1">
+                <p class="c-step-num">1</p>
+                <h3 class="c-step-title">Realizá tu consulta</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas quis </p>
+            </div>
+            <div class="contact-step" id="c-step2">
+                <p class="c-step-num">2</p>
+                <h3 class="c-step-title">Coordinamos reunión</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas quis eaque tenetur hic voluptas 
+                sapiente</p>
+            </div>
+            <div class="contact-step" id="c-step3">
+                <p class="c-step-num">3</p>
+                <h3 class="c-step-title">Último paso</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas quis eaque tenetur hic voluptas 
+                sapiente</p>
+            </div>
+        </div>
+        <div id="contact-link">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Placeat, magni. Quas quis eaque tenetur hic voluptas 
+                sapiente ab reiciendis excepturi.</p>
+            <a href="#contact">Contactar</a>
+        </div>
+    </div>
+</section>
 
 
 
