@@ -22,7 +22,7 @@ main > *{
 
 #casa-left div{
     padding: 0 30px;
-    border-left: 4px solid var(--header-color);
+    border-left: 4px solid var(--main-color);
 }
 
 #casa-left h3{
@@ -51,7 +51,7 @@ main > *{
 
 /* SEGUNDA SECCION */
 #house-description{
-    /* border-top: 2px solid var(--header-color); */
+    /* border-top: 2px solid var(--main-color); */
     height: auto;
     width: 100%;
     background-color: var(--font-color);
@@ -68,9 +68,9 @@ main > *{
 
 .house-description-item{
     width: 45%;
-    border: 1px solid var(--header-color);
+    border: 1px solid var(--main-color);
     padding: 35px 60px;
-    transition: all 0.4s ease;
+    transition: all .6s ease;
 }
 
 .house-description-item h3{
@@ -86,7 +86,7 @@ main > *{
 }
 
 .house-description-item:hover{
-    transform: translateY(-10px);
+    transform: translateY(-6px);
     cursor: pointer;
 }
 
@@ -105,7 +105,7 @@ main > *{
     padding: 8px;
     width: 180px;
     text-align: center;
-    border: 1.5px solid var(--header-color);
+    border: 1.5px solid var(--main-color);
     border-radius: 5px;
     font-weight:lighter;
     margin: 35px 12px 10px 0;
@@ -113,13 +113,13 @@ main > *{
 }
 
 #house-options-images > *:hover{
-    background-color: var(--header-color);
+    background-color: var(--main-color);
     color: #fff;
     cursor: pointer;
 }
 
 .house-options-active{
-    background-color: var(--header-color);
+    background-color: var(--main-color);
     color: #fff;
 }
 
@@ -166,7 +166,7 @@ main > *{
     width: 100%;
     height: auto;
     padding: 20px;
-    background-color: var(--header-color);
+    background-color: var(--main-color);
     color: var(--back-color);
     font-size: 1.3em;
     font-weight:lighter;   

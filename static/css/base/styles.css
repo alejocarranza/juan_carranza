@@ -32,7 +32,7 @@ header{
     justify-content: flex-end;
     align-items: center;
     padding: 20px 10%;
-    background-color: var(--header-color);
+    background-color: var(--back-color-hover);
 }
 
 #logo{
@@ -59,7 +59,8 @@ header{
 }
 
 #btn-contacto{
-    background-color: var(--second-color);
+    background-color: var(--main-color-hover);
+    color: var(--back-color-hover);
     border: none;
 }
 
@@ -98,21 +99,26 @@ header{
         border-radius: 0 0 6px 6px;
     }
     .submenu__item{
-        background-color: var(--header-color-hover);
+        background-color: var(--back-color);
         padding: 16px 22px;
         width: 150px;
         cursor: pointer;
-        border-bottom: 1px solid var(--header-submenu-separator);
+        border-bottom: 1px solid var(--back-color-hover);
+        transition: all .3s ease;
     }
     .submenu__item:hover{
-        background-color: var(--header-color);
+        background-color: var(--back-color-hover);
+        border-bottom: 1px solid var(--back-color-hover);
     }
 
     .menu > li{
         padding: 0px 20px;
     }
+    .menu > li > a{
+        transition: all .3s ease;
+    }
     .menu > li > a:hover{
-        color: var(--back-color);
+        color: var(--main-color-hover);
     }
 
     #btn-contacto{
@@ -123,7 +129,7 @@ header{
         transition: all 0.3s ease 0s;
     }
     #btn-contacto:hover{
-        background-color: var(--second-color-hover);
+        background-color: var(--main-color);
     }
 
     #down{
@@ -164,10 +170,10 @@ header{
     }
 
     .menu__item, .submenu__item{
-        background-color: var(--header-color-hover);
+        background-color: var(--back-color);
         width: 100%;
         padding: 16px 0px;
-        border-bottom: 1px solid var(--header-submenu-separator);
+        /* border-bottom: .5px solid var(--main-color-hover); */
     }
     .submenu__item:first-child{
         padding-top: 30px;
@@ -183,7 +189,7 @@ header{
     }
 
     .submenu{
-        background-color: var(--header-color);
+        background-color: var(--main-color-hover);
         display: none; /* aca pana flex */
         transition: all 0.3s ease 0s;
     }
@@ -191,7 +197,7 @@ header{
     .cta{
         position: absolute;
         left: 0;
-        top: 233px;
+        top: 230px;
         display: block; /* aca pana block */
         visibility: hidden;
         opacity: 0;
@@ -208,6 +214,12 @@ header{
     .submenu-btn{
         padding: 0px 37vw;
     }
+
+    #btn-contacto{
+        background-color: var(--back-color-hover);
+        color: var(--main-color);
+        border: none;
+    }
 } 
 .flex{
     display: flex;
@@ -218,7 +230,7 @@ header{
 }
 .downer{
     transition: all 0s;
-    top: 437px;
+    top: 330px;
 }  
 
 
@@ -227,7 +239,7 @@ header{
     width: 100%;
     position: relative;
     height: fit-content;
-    /* border-top: 4px solid var(--header-submenu-separator); */
+    /* border-top: 4px solid var(--main-submenu-separator); */
     background-color: var(--back-color-hover);
     display: flex;
     flex-direction: row;
@@ -273,7 +285,7 @@ header{
     flex-direction: column;
     align-items: center;
     width: 40%;
-    background-color: var(--header-color);
+    background-color: var(--main-color);
     padding: 22px 0;
     border-radius: 10px;
     margin: 70px 0;
@@ -289,7 +301,7 @@ header{
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid var(--header-color);
+    border: 1px solid var(--main-color);
 }
 
 #mensaje{
@@ -391,7 +403,7 @@ footer{
 /* Second part */
 #f-last{
     padding: 6px;
-    background-color: var(--header-color);
+    background-color: var(--main-color);
     color: var(--back-color);
     font-size: 0.8em;
     text-align: center;

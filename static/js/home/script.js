@@ -1,6 +1,7 @@
 addEventListener("DOMContentLoaded", e=>{
     
-    (d=>{ // SLIDER
+    // SLIDER
+    (d=>{ 
         // Hago las flechas del slider
         const $last= d.getElementById("s-last"),
             $first= d.getElementById("s-first");
@@ -105,7 +106,54 @@ addEventListener("DOMContentLoaded", e=>{
                 moveLeft();
             });
         }, 0);
-
     })(document, window);
-});
 
+    // COMO CONTACTARNOS
+    (d=>{ 
+        // EFECTO DE "ESCALERA"
+        setTimeout(()=>{
+            let $actual,
+                started = false,
+                stepsInterval;
+
+            const $last= d.getElementById("c-step3");
+
+            function hoverNextStep(){
+                $previous= d.querySelector(".c-step-hovered");
+
+                    if (!started) {
+                        started=true;
+
+                        $actual= d.getElementById("c-step1");
+                        
+                        $actual.style.setProperty("transform", "translateY(-30px)");
+                        $actual.classList.toggle("c-step-hovered");
+
+                        $previous.classList.toggle("c-step-hovered");
+                    }else{
+                        if ($previous == $last){
+                            started = false;
+
+                            $previous.style.setProperty("transform", "translateY(0px)");
+
+                            clearInterval(stepsInterval);
+                        }else{
+                            $actual= $previous.nextElementSibling;
+
+                            $previous.classList.toggle("c-step-hovered");
+                            $actual.classList.toggle("c-step-hovered");
+
+                            $previous.style.setProperty("transform", "translateY(0px)");
+                            $actual.style.setProperty("transform", "translateY(-30px)");
+                        };
+                    };
+            };
+
+            setInterval(()=>{
+                stepsInterval= setInterval(()=>{
+                    hoverNextStep();
+                }, 300);
+            }, Math.floor(Math.random() * (7000 - 4000)) + 4000);
+        }, 0);
+    })(document);
+});
