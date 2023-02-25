@@ -69,7 +69,6 @@ function stopInterval(intervalId) {
 
 let slideInterval;
 const callback = function (entry){
-  console.log(entry[0].isIntersecting)
   if(entry[0].isIntersecting){
     slideInterval = startInterval(function () {
       slide($last, $first, "forward");

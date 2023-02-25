@@ -106,6 +106,13 @@ addEventListener("DOMContentLoaded", e=>{
                 moveLeft();
             });
         }, 0);
+
+        // Al hacer click te manda a la url de la casa
+        for(let i= 0; i < $casasCards.length; i++){
+            $casasCards[i].addEventListener("click", e=> {
+                open(`casas/${$casasCards[i].dataset.url}`, "_self");
+            });
+        };
     })(document, window);
 
     // COMO CONTACTARNOS
@@ -126,7 +133,8 @@ addEventListener("DOMContentLoaded", e=>{
 
                         $actual= d.getElementById("c-step1");
                         
-                        $actual.style.setProperty("transform", "translateY(-30px)");
+                        $actual.style.setProperty("transform", "translateY(-16px)");
+                        $actual.style.setProperty("background-color", "rgba(240, 240 , 240, 0.8)"); 
                         $actual.classList.toggle("c-step-hovered");
 
                         $previous.classList.toggle("c-step-hovered");
@@ -135,6 +143,7 @@ addEventListener("DOMContentLoaded", e=>{
                             started = false;
 
                             $previous.style.setProperty("transform", "translateY(0px)");
+                            $previous.style.setProperty("background-color", "var(--back-color-hover)");
 
                             clearInterval(stepsInterval);
                         }else{
@@ -144,7 +153,10 @@ addEventListener("DOMContentLoaded", e=>{
                             $actual.classList.toggle("c-step-hovered");
 
                             $previous.style.setProperty("transform", "translateY(0px)");
-                            $actual.style.setProperty("transform", "translateY(-30px)");
+                            $previous.style.setProperty("background-color", "var(--back-color-hover)");
+
+                            $actual.style.setProperty("transform", "translateY(-16px)");
+                            $actual.style.setProperty("background-color", "rgba(235, 235 , 235, 0.8)"); 
                         };
                     };
             };
@@ -152,8 +164,156 @@ addEventListener("DOMContentLoaded", e=>{
             setInterval(()=>{
                 stepsInterval= setInterval(()=>{
                     hoverNextStep();
-                }, 300);
-            }, Math.floor(Math.random() * (7000 - 4000)) + 4000);
+                }, 550);
+            }, 5000/*Math.floor(Math.random() * (7000 - 4000)) + 4000)*/);
+        }, 0);
+
+        // EFECTO DEL BOTÓN
+        setTimeout(()=>{
+            let btnEfectInteval,
+                arriba= false,
+                counter= 0;
+            const $btn= d.getElementById("c-step-btn");
+
+            function btnEfect(){
+                if (!arriba){
+                    $btn.style.setProperty("transform", "translateY(-6px)");
+                    arriba = true;
+                } else if (counter== 2){
+                    counter = 0;
+                    arriba= false;
+                    $btn.style.setProperty("transform", "translateY(0px)");
+                    clearInterval(btnEfectInteval);
+                } else{
+                    $btn.style.setProperty("transform", "translateY(6px)");
+                    arriba = false;
+                    counter++;
+                };
+            };
+
+            setInterval(()=>{
+                btnEfectInteval= setInterval(()=>{
+                    btnEfect();
+                }, 200);
+            }, 8000);
         }, 0);
     })(document);
+
+    // EFECTOS AL APARECER EN PANTALLA
+    ((d, w)=>{
+        function setTransition(el, duration, type){
+            el.style.setProperty("transition", `all ${duration} ${type}`);
+        };
+
+        // EFECTO DEL HOME TEXT
+        setTimeout(()=>{
+            const $borderTop= d.getElementById("ht-border-top"),
+                $borderBottom= d.getElementById("ht-border-bottom"),
+                $htTitle= d.getElementById("ht-top-title"),
+                $htText= d.getElementById("ht-top-text"),
+                $mainText= d.getElementById("ht-main"),
+                $homeText= d.getElementById("home-text");
+
+            setTransition($borderTop, "1s", "ease");
+            setTransition($borderBottom, "1s", "ease");
+            setTransition($htTitle, "2s", "ease-in");
+            setTransition($htText, "2s", "ease-in");
+            setTransition($mainText, "1s", "ease");
+            
+            function showEffectHT(){
+                $borderTop.style.setProperty("transform", "translateX(0px)");
+                $borderBottom.style.setProperty("transform", "translateX(0px)");
+                $htTitle.style.setProperty("opacity", "1");
+                $htText.style.setProperty("opacity", "1");
+                $mainText.style.setProperty("transform", "translateY(0px)");
+                $mainText.style.setProperty("opacity", "1");
+            }; 
+
+            function dissapearHT(){
+                $borderTop.style.setProperty("transform", "translateX(-500px)");
+                $borderBottom.style.setProperty("transform", "translateX(500px)");
+                $htTitle.style.setProperty("opacity", "0");
+                $htText.style.setProperty("opacity", "0");
+                $mainText.style.setProperty("transform", "translateY(30px)");
+                $mainText.style.setProperty("opacity", "0");
+            };
+
+            const effectHT = function (entry){
+                if(entry[0].isIntersecting){
+                    showEffectHT();
+                } else{
+                    dissapearHT();
+                };
+            };
+        
+            const observer= new IntersectionObserver(effectHT, {threshold: 0.3,});
+            observer.observe($homeText);
+        
+            d.addEventListener("visibilitychange", e=>{
+                if(d.visibilityState === 'visible'){
+                    showEffectHT();
+                } else{
+                    dissapearHT();
+                };
+            });
+
+
+        }, 0);
+
+        // EFECTO DEL HOME CASAS
+        setTimeout(()=>{
+            let cardsWidth= w.innerWidth * 85 / 100,
+                cantCards= Math.floor(cardsWidth / 285);
+                
+            function getCantCards(){
+                cardsWidth= w.innerWidth * 85 / 100;
+                cantCards= Math.floor(cardsWidth / 285);
+            };
+            
+            const $cards= d.querySelectorAll(".home-casa-card"),
+                $homeCasas= d.getElementById("home-casas-cards");
+
+            for (let i=0; i<$cards.length; i++){
+                setTransition($cards[i], "1s", "ease");
+            }; 
+
+            function showEffectHC(){
+                getCantCards(); 
+                for (let i=0; i<$cards.length; i++){
+                    setTimeout(()=>{
+                        $cards[i].style.setProperty("transform", "translateY(0px)");
+                        $cards[i].style.setProperty("opacity", "1");
+                    }, i * 400);
+                }; 
+            };
+
+            function dissapearHC(){
+                getCantCards(); 
+                for (let i=0; i<$cards.length; i++){
+                    $cards[i].style.setProperty("transform", `translateY(35px)`);
+                    $cards[i].style.setProperty("opacity", "0");
+                }; 
+            };
+
+            const effectHC= function(entry){
+                if(entry[0].isIntersecting){
+                    showEffectHC();
+                } else{
+                    dissapearHC();
+                };
+            };
+
+            const observer1= new IntersectionObserver(effectHC, {threshold: 0.2,});
+            observer1.observe($homeCasas);
+
+            d.addEventListener("visibilitychange", e=>{
+                if(d.visibilityState === 'visible'){
+                    showEffectHC();
+                } else{
+                    dissapearHC();
+                };
+            });
+        }, 0);
+
+    })(document, window);
 });

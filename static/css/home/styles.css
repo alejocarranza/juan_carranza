@@ -131,15 +131,15 @@
 
 #ht-border-top{
     display: inline-block;
-    width: 100px;
-    border-top: 1px solid var(--back-color-hover);
+    width: 150px;
+    border-top: 2px solid var(--back-color-hover);
     margin-bottom: 12px;
 }
 
 #ht-border-bottom{
     display: inline-block;
-    width: 100px;
-    border-bottom: 1px solid var(--back-color-hover);
+    width: 150px;
+    border-bottom: 2px solid var(--back-color-hover);
     margin-top: 16px;
 }
 
@@ -322,11 +322,12 @@
     color: var(--main-color);
     border-radius: 8px;
     transition: all .4s ease;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 #contact-link > a:hover{
     background-color: var(--back-color-hover);
-    transform: scale(97.5%);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 1200px){

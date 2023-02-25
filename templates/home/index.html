@@ -26,19 +26,19 @@
 <section id="home-text">
     <div id="ht-top">
         <div id="ht-border-top"></div>
-        <h2>OFRECEMOS VALOR</h2>
-        <p>EN CADA METRO CONSTRUÍDO</p>
+        <h2 id="ht-top-title">OFRECEMOS VALOR</h2>
+        <p id="ht-top-text">EN CADA METRO CONSTRUÍDO</p>
         <div id="ht-border-bottom"></div>
     </div>
-    <p>La creatividad, combinada con la flexibilidad, y respaldada por la trayectoria, nos asegura precisión en cada paso, calidez en cada acción y la constante innovación en cada negocio.</p>
+    <p id="ht-main">La creatividad, combinada con la flexibilidad, y respaldada por la trayectoria, nos asegura precisión en cada paso, calidez en cada acción y la constante innovación en cada negocio.</p>
 </section>
 
 <section id="home-casas">
-    <h2>NUESTRAS CASAS</h2>
+    <h2 id="hc-title">NUESTRAS CASAS</h2>
     <img id="hc-left" class="hc-arrow" width="40" src="{{ MEDIA_ROOT }}home/slider/chevron-left.png" alt="left">
     <div id="home-casas-cards">
         {% for slug, casa in casasImagen.items %}
-        <div class="home-casa-card">
+        <div class="home-casa-card" data-url="{{slug}}">
             <p class="casa-card-info">{{casa.nombre}}</p>
             <img src="{{ casa.imagen_principal.url }}" alt="{{casa.imagen_principal.slug}}">
             <p class="casa-card-mas">CONOCER MÁS</p>
@@ -74,7 +74,7 @@
         <div id="contact-link">
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
                 Placeat, magni. </p>
-            <a href="#contact">Contactar</a>
+            <a id="c-step-btn" href="#contact">Contactar</a>
         </div>
     </div>
 </section>

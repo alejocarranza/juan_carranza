@@ -45,6 +45,10 @@
             <a id="btn-contacto-container" href="#contact" class="cta downer"><button id="btn-contacto">Contacto</button></a>
         </header>
 
+        <div id="scroll-top">
+            <img src="{{ MEDIA_ROOT }}/base/scrollTop/arrow-top.png" alt="top">
+        </div>
+
         {% block content %} {% endblock %}
 
         <section id="contact">
@@ -83,7 +87,6 @@
             </form>
         </section>
 
-
         <footer>
             <div id="f-first">
                 <div class="f-section" id="f-first-first">
@@ -112,9 +115,6 @@
                 <p>© Nombre - Todos los derechos reservados</p>
             </div>
         </footer>
-
-
-
 
         <!-- FONTAWESOMEFREE -->
         <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>

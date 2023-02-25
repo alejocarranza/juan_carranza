@@ -72,7 +72,34 @@ document.addEventListener("DOMContentLoaded", ()=>{
             $menu.children[2].addEventListener("click", ()=> mandarLink($menu.children[2]));
         }, 0)
     })(document);
-    
+
+    ((d,w)=>{ // Scroll to top
+        let showed = false;
+        const $scrollTop= d.getElementById("scroll-top");
+
+        w.addEventListener("scroll", ()=>{
+            if(w.scrollY>= 500 && !showed){
+                $scrollTop.style.setProperty("opacity", "1");
+                $scrollTop.style.setProperty("visibility", "visible");
+                $scrollTop.style.setProperty("transform", "translateY(0px)");
+                showed= true;
+            } else if (w.scrollY<=500 && showed){
+                $scrollTop.style.setProperty("opacity", "0");
+                $scrollTop.style.setProperty("visibility", "hidden");
+                $scrollTop.style.setProperty("transform", "translateY(30px)");
+                showed= false;
+            };
+        });
+
+        $scrollTop.addEventListener("click", e=>{
+            w.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        });
+    })(document, window);
+
     (d=>{ // Si te moves dentro de la misma pagina hace un efecto de transicion
         d.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -83,27 +110,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
             });
           });
     })(document);
-
-    ((d, w)=>{ // Transicion al aparecer en pantalla
-        
-        var elements = d.querySelectorAll('body > *');
-        elements.forEach(function(element) {
-            var rect = element.getBoundingClientRect();
-            if (rect.top < w.innerHeight) {
-                element.style.transition = 'opacity 1s ease-in-out';
-                element.style.opacity = 1;
-            } else {
-                element.style.opacity = 0;
-                element.style.transition = 'opacity 1s ease-in-out';
-                w.addEventListener('scroll', function() {
-                    rect = element.getBoundingClientRect();
-                    if (rect.top < w.innerHeight) {
-                        element.style.opacity = 1;
-                    };
-                });
-            };
-        });
-          
-    })(document, window);
 });
 
