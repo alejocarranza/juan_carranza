@@ -71,6 +71,25 @@ document.addEventListener("DOMContentLoaded", ()=>{
             $menu.children[0].addEventListener("click", ()=> mandarLink($menu.children[0]));
             $menu.children[2].addEventListener("click", ()=> mandarLink($menu.children[2]));
         }, 0)
+
+        // El botón de contacto al tocar el submenu se baja de una manera relativa a la cantidad de casas
+        function crearDowner() {
+            const cantCasas= d.querySelectorAll(".submenu__item").length,
+                topValue= `calc(${cantCasas * 32}px + ${cantCasas}em + 230px + 5px)`;
+
+            let stylesheet = document.styleSheets[0],
+                rules = stylesheet.cssRules || stylesheet.rules,
+                nuevaRegla = `.downer {
+                    transition: all 0s !important; 
+                    top: ${topValue} !important; 
+                }`;
+            if (stylesheet.insertRule) {
+              stylesheet.insertRule(nuevaRegla, rules.length);
+            } else {
+              stylesheet.addRule(nuevaRegla);
+            };
+          };
+          crearDowner();
     })(document);
 
     ((d,w)=>{ // Scroll to top

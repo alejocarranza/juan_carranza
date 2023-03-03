@@ -32,8 +32,10 @@ header{
     justify-content: flex-end;
     align-items: center;
     padding: 20px 10%;
-    background-color: var(--back-color);
-    box-shadow: inset 0px -1px 10px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(var(--back-color), var(--back-color), var(--back-color-hover));
+    /* box-shadow: inset 0px -3px 10px rgba(0, 0, 0, 0.2); */
+    z-index: 9999;
+    width: 100%;
 }
 
 #logo{
@@ -229,10 +231,6 @@ header{
     visibility: visible !important;
     opacity: 1 !important; 
 }
-.downer{
-    transition: all 0s;
-    top: 330px;
-}  
 
 
 /* CONTACTO */

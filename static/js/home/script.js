@@ -165,7 +165,7 @@ addEventListener("DOMContentLoaded", e=>{
                 stepsInterval= setInterval(()=>{
                     hoverNextStep();
                 }, 550);
-            }, 5000/*Math.floor(Math.random() * (7000 - 4000)) + 4000)*/);
+            }, 7000/*Math.floor(Math.random() * (7000 - 4000)) + 4000)*/);
         }, 0);
 
         // EFECTO DEL BOTÓN
@@ -311,6 +311,87 @@ addEventListener("DOMContentLoaded", e=>{
                     showEffectHC();
                 } else{
                     dissapearHC();
+                };
+            });
+        }, 0);
+
+        // EFECTO DE COMO CONTACTARNOS
+        setTimeout(()=>{
+            const $stepOne= d.getElementById("c-step1"),
+                $stepTwo= d.getElementById("c-step2"),
+                $stepThree= d.getElementById("c-step3"),
+                $steps= d.getElementById("contact-steps"),
+                $contactLink= d.getElementById("contact-link");
+
+            setTransition($stepOne, ".8s", "ease");
+            setTransition($stepTwo, ".8s", "ease");
+            setTransition($stepThree, ".8s", "ease");
+            setTransition($contactLink, "2s", "ease");
+
+            function showEffectCC(){
+                setTimeout(()=>{
+                    $stepOne.style.setProperty("transform", "translateY(-20px)");
+                    $stepOne.style.setProperty("opacity", "1");
+                    $stepOne.style.setProperty("background-color", "rgba(240, 240 , 240, 0.8)");
+                }, 200);
+                setTimeout(()=>{
+                    $stepTwo.style.setProperty("transform", "translateY(-20px)");
+                    $stepTwo.style.setProperty("opacity", "1");
+                    $stepTwo.style.setProperty("background-color", "rgba(240, 240 , 240, 0.8)");
+                }, 500);
+                setTimeout(()=>{
+                    $stepThree.style.setProperty("transform", "translateY(-20px)");
+                    $stepThree.style.setProperty("opacity", "1");
+                    $stepThree.style.setProperty("background-color", "rgba(240, 240 , 240, 0.8)");
+                }, 800);
+
+                setTimeout(()=>{
+                    $stepOne.style.setProperty("transform", "translateY(0px)");
+                    $stepOne.style.setProperty("background-color", "var(--back-color-hover)");
+                }, 700);
+                setTimeout(()=>{
+                    $stepTwo.style.setProperty("transform", "translateY(0px)");
+                    $stepTwo.style.setProperty("background-color", "var(--back-color-hover)");
+                }, 1000);
+                setTimeout(()=>{
+                    $stepThree.style.setProperty("transform", "translateY(0px)");
+                    $stepThree.style.setProperty("background-color", "var(--back-color-hover)");
+                }, 1300);
+
+                setTimeout(()=>{
+                    $contactLink.style.setProperty("transform", "translateX(0px)");
+                    $contactLink.style.setProperty("opacity", "1");
+                }, 400);
+            };
+
+            function dissapearCC(){
+                $stepOne.style.setProperty("transform", "translateY(60px)");
+                $stepTwo.style.setProperty("transform", "translateY(60px)");
+                $stepThree.style.setProperty("transform", "translateY(60px)");
+                $stepOne.style.setProperty("opacity", "0");
+                $stepTwo.style.setProperty("opacity", "0");
+                $stepThree.style.setProperty("opacity", "0");
+
+                $contactLink.style.setProperty("transform", "translateX(50px)");
+                $contactLink.style.setProperty("opacity", "0");
+            };
+
+            const effectCC= function(entry){
+                if(entry[0].isIntersecting){
+                    showEffectCC();
+                } else{
+                    dissapearCC();
+                };
+            };
+
+            const observer1= new IntersectionObserver(effectCC, {threshold: 0.2,});
+            observer1.observe($steps);
+
+            d.addEventListener("visibilitychange", e=>{
+                if(d.visibilityState === 'visible'){
+                    showEffectCC();
+                } else{
+                    dissapearCC();
                 };
             });
         }, 0);
