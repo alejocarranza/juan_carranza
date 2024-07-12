@@ -164,7 +164,7 @@ addEventListener("DOMContentLoaded", e=>{
             setInterval(()=>{
                 stepsInterval= setInterval(()=>{
                     hoverNextStep();
-                }, 550);
+                }, 650);
             }, 7000/*Math.floor(Math.random() * (7000 - 4000)) + 4000)*/);
         }, 0);
 
@@ -195,7 +195,7 @@ addEventListener("DOMContentLoaded", e=>{
                 btnEfectInteval= setInterval(()=>{
                     btnEfect();
                 }, 200);
-            }, 8000);
+            }, 9000);
         }, 0);
     })(document);
 
@@ -333,35 +333,35 @@ addEventListener("DOMContentLoaded", e=>{
                     $stepOne.style.setProperty("transform", "translateY(-20px)");
                     $stepOne.style.setProperty("opacity", "1");
                     $stepOne.style.setProperty("background-color", "rgba(240, 240 , 240, 0.8)");
-                }, 200);
+                }, 0);
                 setTimeout(()=>{
                     $stepTwo.style.setProperty("transform", "translateY(-20px)");
                     $stepTwo.style.setProperty("opacity", "1");
                     $stepTwo.style.setProperty("background-color", "rgba(240, 240 , 240, 0.8)");
-                }, 500);
+                }, 200);
                 setTimeout(()=>{
                     $stepThree.style.setProperty("transform", "translateY(-20px)");
                     $stepThree.style.setProperty("opacity", "1");
                     $stepThree.style.setProperty("background-color", "rgba(240, 240 , 240, 0.8)");
-                }, 800);
+                }, 500);
 
                 setTimeout(()=>{
                     $stepOne.style.setProperty("transform", "translateY(0px)");
                     $stepOne.style.setProperty("background-color", "var(--back-color-hover)");
-                }, 700);
+                }, 400);
                 setTimeout(()=>{
                     $stepTwo.style.setProperty("transform", "translateY(0px)");
                     $stepTwo.style.setProperty("background-color", "var(--back-color-hover)");
-                }, 1000);
+                }, 700);
                 setTimeout(()=>{
                     $stepThree.style.setProperty("transform", "translateY(0px)");
                     $stepThree.style.setProperty("background-color", "var(--back-color-hover)");
-                }, 1300);
+                }, 1000);
 
                 setTimeout(()=>{
                     $contactLink.style.setProperty("transform", "translateX(0px)");
                     $contactLink.style.setProperty("opacity", "1");
-                }, 400);
+                }, 200);
             };
 
             function dissapearCC(){

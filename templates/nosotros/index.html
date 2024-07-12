@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Nosotros {% endblock %}
+
+{% block style %} <link rel="stylesheet" href="{% static 'css/nosotros/styles.css' %}"> {% endblock %}
+
+{% block content %} 
+
+<section id="nosotros-title">
+    <h1 id="nt-text">NOSOTROS</h1>
+    <div id="nt-border"></div>
+    <h2  id="nt-title">CARRANZA DESARROLLOS</h2>
+</section>
+
+<section id="quienes-somos">
+    <h2 id="qs-title">¿QUIENES SOMOS?</h2>
+    <div id="qs-separator"></div>
+    <h5 id="qs-subtitle"> ADMINISTRAMOS, COORDINAMOS Y SUPERVISAMOS DESARROLLOS INMOBILIARIOS </h5>
+    <p class="qs-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, magni, 
+        pariatur libero aut nam eum a assumenda laudantium id velit tenetur! 
+        Doloremque voluptate accusantium facere laborum error. Facilis ratione 
+        assumenda fugiat, mollitia tempora qui dolores provident accusamus 
+        invento. </p>
+    <p class="qs-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, magni, 
+        pariatur libero aut nam eum a assumenda laudantium id velit tenetur! 
+        Doloremque voluptate accusantium facere laborum error. </p>
+</section>
+
+<section id="estrategia">
+    <div id="estrategia-container">
+        <div class="est-son" id="est-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/2636/2636300.png" alt="uno">
+            <h4>NUESTRO PROPÓSITO</h4>
+            <h3>Misión</h3>
+            <p>Planear, dirigir y controlar proyectos para asegurar la calidad esperada, 
+                sin rebasar los recursos establecidos y mediante procesos de control 
+                eficientes que logren la satisfacción del cliente y proveedores.</p>
+        </div>
+        <div class="est-son" id="est-right">
+            <img src="https://www.globalpropiedadgestion.com/wp-content/uploads/2016/06/logo-defensa-contribuyente-400x400.png" alt="dos">
+            <h4>NUESTRAS CREENCIAS</h4>
+            <h3>Valores</h3>
+            <p>Compromiso</p>
+            <p>Honestidad</p>    
+            <p>Responsabilidad</p>    
+            <p>Respeto</p>    
+            <p>Trabajo en Equipo Innovación</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- <section >
+    <img id="nosotros-img" src="https://cronicaglobal.elespanol.com/uploads/s1/68/91/92/4/apreto-n-de-manos-para-el-nacimiento-de-una-empresa.jpeg" alt="">
+
+</section> -->
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br>
+
+
+
+{% endblock %}
+
+{% block script %} <script src="{% static 'js/nosotros/script.js' %}"></script> {% endblock %}

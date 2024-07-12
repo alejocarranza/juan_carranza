@@ -70,7 +70,7 @@ main > *{
     width: 45%;
     border: 1px solid var(--main-color);
     padding: 35px 60px;
-    transition: all .6s ease;
+    transition: all 1s ease;
 }
 
 .house-description-item h3{
@@ -84,12 +84,6 @@ main > *{
     color: #969BA1;
     text-decoration: underline;
 }
-
-.house-description-item:hover{
-    transform: translateY(-6px);
-    cursor: pointer;
-}
-
 
 
 /* SECCION IMAGENES */

@@ -33,9 +33,10 @@ header{
     align-items: center;
     padding: 20px 10%;
     background: linear-gradient(var(--back-color), var(--back-color), var(--back-color-hover));
-    /* box-shadow: inset 0px -3px 10px rgba(0, 0, 0, 0.2); */
     z-index: 9999;
     width: 100%;
+    box-shadow:5px 5px 10px rgba(0,0,0,0.3);
+    height: 60px;
 }
 
 #logo{
@@ -43,7 +44,7 @@ header{
     margin-right: auto;
 }
 #logo img{
-    height: 35px;
+    height: 20px;
 }
 
 .menu{
@@ -51,6 +52,7 @@ header{
     list-style: none;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .menu > li{

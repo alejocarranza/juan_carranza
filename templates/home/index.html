@@ -44,6 +44,13 @@
             <p class="casa-card-mas">CONOCER MÁS</p>
         </div>
         {% endfor %}
+        {% for slug, casa in casasImagen.items %}
+        <div class="home-casa-card" data-url="{{slug}}">
+            <p class="casa-card-info">{{casa.nombre}}</p>
+            <img src="{{ casa.imagen_principal.url }}" alt="{{casa.imagen_principal.slug}}">
+            <p class="casa-card-mas">CONOCER MÁS</p>
+        </div>
+        {% endfor %}
     </div>
     <img id="hc-right" class="hc-arrow" width="40" src="{{ MEDIA_ROOT }}home/slider/chevron-right.png" alt="right">
 </section>

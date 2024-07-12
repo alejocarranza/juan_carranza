@@ -330,6 +330,47 @@
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 1200px){
-    /* Hay que hacerlo responsive */
+
+
+@media (max-width: 1100px) {
+    #contact-text{
+        min-height: 520px;
+        position: relative;
+    }
+    
+    #contact-link{
+        position: absolute;
+        width: 47%;
+        height: fit-content;
+        min-height: 260px;
+        margin: 0px;
+        border-radius: 0;
+    }
+
+    .contact-step{
+        position: absolute;
+        width: 47%;
+        height: fit-content;
+        min-height: 260px;
+        margin: 0px;
+    }
+    
+    #c-step1{
+        left: 1.5%;
+        border-radius: 0;
+    }
+    #c-step2{
+        right: 1.5%;
+    }
+
+    #c-step3{
+        top: 270px;
+        left: 1.5%;
+        border-radius: 0;
+    }
+    #contact-link{
+        top: 270px;
+        right: 1.5%;
+    }
 }
+  
