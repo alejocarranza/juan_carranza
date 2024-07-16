@@ -62,15 +62,15 @@ addEventListener("DOMContentLoaded", e=>{
         function showOnlyNecessary(first){
             let left;
             cardsWidth= w.innerWidth * 85 / 100;
-            cantCards= Math.floor(cardsWidth / 285);
+            cantCards= Math.floor(cardsWidth / 330);
             const last= cantCards+first;
 
             for(let i=0; i<$casasCards.length; i++){
                 if(i >= first && i < last){
-                    left= cardsWidth / cantCards * (i - first) + (cardsWidth % 285 / (cantCards * 2)) - 25;
+                    left= cardsWidth / cantCards * (i - first) + (cardsWidth % 330 / (cantCards * 2)) - 25;
                     $casasCards[i].style.left= `${left}px`;
                 } else{
-                    $casasCards[i].style.left= 'calc(-15% - 280px)';
+                    $casasCards[i].style.left= 'calc(-15% - 500px)';
                 };
             };
         };

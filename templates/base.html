@@ -30,14 +30,7 @@
             <nav id="nav">
                 <ul class="menu">
                     <li class="menu__item"><a href="/" class="menu__link">Inicio</a></li>
-                    <li class="menu__item container-submenu">
-                        <a class="submenu-btn menu__link">Casas</a><i id="down" class="fa-solid fa-caret-down"></i>
-                        <ul class="submenu flex show">
-                            {% for casa in casas %}
-                            <li class="submenu__item"><a href="{% url 'casas' casa.slug %}" class="menu__link">{{casa.nombre}}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </li>
+                    <li class="menu__item"><a href="{% url 'barrios' %}" class="menu__link">Propiedades</a></li>
                     <li class="menu__item"><a href="/nosotros/" class="menu__link">Nosotros</a></li>
                 </ul>
             </nav>

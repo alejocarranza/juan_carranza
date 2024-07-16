@@ -1,12 +1,11 @@
 :root{
-    --back-color: rgb(255,255,255);
-    --back-color-hover: #dfe0df;
+    --back-color: #F9F5EA;
+    --back-color-hover: #e7e3d5;
     --font-color: black;
-    --font-secondary-color: #086436;
-    --main-color: #1e8036/*#949ba2*/;
-    --main-color-hover: #02931f/*rgb(175, 180, 186)*/;
-    --header-border-color: rgb(30, 128, 54);
-    /* --header-submenu-separator: #00a020 rgb(190, 195, 201); */
-    --second-color: #09cda9;
-    --second-color-hover: #09bc9b;
+    --font-secondary-color: /*#2C4156*/#0D0C1D;
+    --main-color: /*#2F3937*/ #2C4156;
+    --main-color-hover: /*#242c2b*/ #253b50;
+    --form-contact-color: #d3cec7;
+    --second-color: #2F3937;
+    --second-color-hover: #222c2a;    
 }

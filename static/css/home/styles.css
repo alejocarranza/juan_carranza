@@ -146,7 +146,7 @@
 
 /* SECCION CASAS */
 #home-casas{
-    margin-top: 50px;
+    margin-top: 12px;
     position: relative;
     margin-bottom: 50px;
 }
@@ -155,11 +155,11 @@
     width: 100%;
     padding: 20px 0;
     text-align: center;
-    background-color: var(--main-color);
-    color: var(--back-color);
+    /*background-color: var(--main-color);
+    color: var(--back-color);*/
     font-weight: 100;
-    font-size: 1.25em;
-    margin-bottom: 50px;
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
 #home-casas-cards{
@@ -170,17 +170,18 @@
 }
 
 .home-casa-card{
-    width: 260px;
+    width: 320px;
     background-color: var(--back-color-hover);
     margin: 0 30px;
     position: absolute;
     border-radius: 8px;
     box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-    transition: all .6s ease;
+    transition: all .5s ease;
+    overflow: hidden;
 }
 
 .casa-card-info{
-    background-color: #C4BDAF;
+    background-color: var(--second-color);
     color: white;
     border-radius: 8px 8px 0 0;
     text-align: center;
@@ -189,10 +190,22 @@
     font-size: 1em;
 }
 
-.home-casa-card > img{
-    width: 260px;
+.image-container{
+    overflow: hidden;
+    height: 300px;
+}
+
+.image1{
+    width: 320px;
     height: 300px;
     object-fit: cover;
+    transition: all .5s ease-in;
+}
+
+@media (max-width: 450px){
+    .home-casa-card{
+        width: 85%;
+    }
 }
 
 .casa-card-mas{
@@ -203,12 +216,14 @@
 }
 
 .home-casa-card:hover{
-    box-shadow: 0px 7px 15px rgba(0,0,0,0.35);
     cursor: pointer;
-    transform: translateY(-6px);
 }
 .home-casa-card:hover > .casa-card-info{
-    background-color: #b1ab9f;
+    background-color: var(--second-color-hover);
+}
+.home-casa-card:hover .image1{
+    transform: scale(1.1);
+    filter: brightness(.7); 
 }
 
 .hc-arrow{

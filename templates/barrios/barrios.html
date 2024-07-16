@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ casa.nombre }} {% endblock %}
+{% block style %} <link rel="stylesheet" href="{% static 'css/barrios/barrios.css' %}"> {% endblock %}
+
+{% block content %}
+
+<section id="nosotros-title">
+    <h1 id="nt-text">BARRIOS</h1>
+    <div id="nt-border"></div>
+    <h2  id="nt-title">CARRANZA FEBRE</h2>
+</section>
+
+<section id="home-casas">
+    <h2>¿D&oacute;nde te gustar&iacute;a viv&iacute;r?</h2>
+    <img id="hc-left" class="hc-arrow" width="40" src="home/slider/chevron-left.png" alt="left">
+    <div id="home-casas-cards">
+        {% for barrio in barrios %}
+        <div class="home-casa-card" data-url="{% url 'barrioX' barrio.slug %}">
+            <p class="casa-card-info">{{barrio.nombre}}</p>
+            <div class="image-container">
+                <img class="image1" src="{{ barrio.imagen.url }}" alt="{{barrio.nombre}} imágen">
+            </div>
+        </div>
+        {% endfor %}
+        {% for barrio in barrios %}
+        <div class="home-casa-card" data-url="{% url 'barrioX' barrio.slug %}">
+            <p class="casa-card-info">{{barrio.nombre}}</p>
+            <div class="image-container">
+                <img class="image1" src="{{ barrio.imagen.url }}" alt="{{barrio.nombre}} imágen">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <img id="hc-right" class="hc-arrow" width="40" src="{{ MEDIA_ROOT }}home/slider/chevron-right.png" alt="right">
+</section>
+
+
+{% endblock %}
+
+{% block script %} <script src="{% static 'js/barrios/barrios.js' %}"></script> {% endblock %}
