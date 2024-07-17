@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ casa.nombre }} {% endblock %}
+{% block style %} <link rel="stylesheet" href="{% static 'css/barrios/barrioX.css' %}"> {% endblock %}
+
+{% block content %}
+
+<section id="nosotros-title">
+    <h1 id="nt-text">{{barrio.nombre|upper}}</h1>
+    <div id="nt-border"></div>
+    <h2  id="nt-title">CARRANZA FEBRE</h2>
+</section>
+
+<section id="quienes-somos">
+    <h2 id="qs-title">¿PORQUE VIVIR EN {{barrio.nombre|upper}}?</h2>
+    <div id="qs-separator"></div>
+    <h5 id="qs-subtitle"> {{barrio.titulo}} </h5>
+    <p class="qs-text">{{barrio.descripcion}} </p>
+</section>
+
+<section id="home-casas">
+    <h2>Eleg&iacute; tu casa ideal!</h2>
+    <img id="hc-left" class="hc-arrow" width="40" src="home/slider/chevron-left.png" alt="left">
+    <div id="home-casas-cards">
+        {% for casa, imagen in combined_data %}
+        <div class="home-casa-card" data-url="{% url 'casas' barrio.slug casa.slug %}">
+            <p class="casa-card-info">{{casa.nombre|upper}}</p>
+            <div class="image-container">
+                <img class="image1" src="{{ imagen }}" alt="{{casa.nombre}} imágen">
+            </div>
+        </div>
+        {% empty %}
+        <p><strong> Sin disponibilidad</strong></p>
+        {% endfor %}
+    </div>
+    <img id="hc-right" class="hc-arrow" width="40" src="{{ MEDIA_ROOT }}home/slider/chevron-right.png" alt="right">
+</section>
+
+{% endblock %}
+
+{% block script %} <script src="{% static 'js/barrios/barrioX.js' %}"></script> {% endblock %}

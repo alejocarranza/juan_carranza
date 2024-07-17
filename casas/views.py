@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Casa
 from .models import Barrio
+from .models import TipoOperacion
+from .models import TipoPropiedad
 
 # Create your views here.
 def get_images_by_option(slug, option):
@@ -11,19 +13,30 @@ def get_images_by_option(slug, option):
 
 def barrios(request):
     barrios= Barrio.objects.all()
+    tipos_propiedades= TipoPropiedad.objects.all()
+    tipos_operaciones= TipoOperacion.objects.all()
 
     params= {
-        "barrios": barrios
+        "barrios": barrios,
+        "tipos_propiedades": tipos_propiedades,
+        "tipos_operaciones": tipos_operaciones,
     }
     return render(request, "barrios/barrios.html", params)
 
-def barrioX(request):
-    barrios= Barrio.objects.all()
+def barrioX(request, slugBarrio):
+    barrio= Barrio.objects.get(slug= slugBarrio)
+    casas= Casa.objects.filter(direccion= barrio)
 
-    params= {
-        "barrios": barrios
+    imagenes_principales= []
+    for casa in casas:
+        imagenes_principales.append(casa.imagenes.filter(opcion='principal').first().imagen.url)
+
+    combined_data = list(zip(casas, imagenes_principales))
+    params={
+        "barrio": barrio,
+        "combined_data": combined_data,
     }
-    return render(request, "barrios/barrios.html", params)
+    return render(request, "barrios/barrioX.html", params)
 
 def casas(request, slugBarrio, slugCasa):
     casa= Casa.objects.get(slug= slugCasa)
@@ -34,7 +47,6 @@ def casas(request, slugBarrio, slugCasa):
     imagenes_avances = get_images_by_option(slugCasa, 'avance_de_obra')
     imagenes_planos = get_images_by_option(slugCasa, 'planos')
 
-    print(barrio)
     params= {
         "casa": casa,
         "barrio": barrio,
@@ -46,3 +58,4 @@ def casas(request, slugBarrio, slugCasa):
     }
 
     return render(request, 'casas/casaX.html', params)
+    

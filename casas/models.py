@@ -39,6 +39,28 @@ class Imagen(models.Model):
     def __str__(self):
         return str(self.slug)
 
+class TipoPropiedad(models.Model):
+    nombre= models.CharField(max_length= 40)
+    slug= models.SlugField(max_length=50)
+
+    class Meta:
+        verbose_name= "Tipo de propiedad"
+        verbose_name_plural= "Tipos de propiedades"
+
+    def __str__(self):
+        return str(self.nombre)
+
+class TipoOperacion(models.Model):
+    nombre= models.CharField(max_length= 40)
+    slug= models.SlugField(max_length=50)
+
+    class Meta:
+        verbose_name= "Tipo de operación"
+        verbose_name_plural= "Tipos de operaciones"
+
+    def __str__(self):
+        return str(self.nombre)
+
 class Casa(models.Model):
     nombre= models.CharField(max_length=80)
     direccion= models.ForeignKey(Barrio, on_delete=models.CASCADE)
@@ -58,6 +80,9 @@ class Casa(models.Model):
     ambientes= models.PositiveSmallIntegerField()
     precio= models.PositiveIntegerField(verbose_name="Precio en dolares de la casa")
     video= models.FileField(upload_to= "casas/videos/")
+
+    tipo_propiedad= models.ForeignKey(TipoPropiedad, on_delete=models.CASCADE)
+    tipo_operacion= models.ForeignKey(TipoOperacion, on_delete=models.CASCADE)
 
     created= models.DateTimeField(auto_now_add=True)
 

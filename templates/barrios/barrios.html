@@ -7,26 +7,42 @@
 {% block content %}
 
 <section id="nosotros-title">
-    <h1 id="nt-text">BARRIOS</h1>
+    <h1 id="nt-text">PROPIEDADES</h1>
     <div id="nt-border"></div>
     <h2  id="nt-title">CARRANZA FEBRE</h2>
 </section>
 
+<section id="filtros">
+    <div id="tipo-propiedad" class="filtro">
+        <p id="filtro-title">Tipo de propiedad</p>
+        {% for tipo_prop in tipos_propiedades %}
+            <p class="filtro-opcion" data-loop="{{forloop.counter}}">{{tipo_prop.nombre}}</p>
+        {% endfor %}
+        <img class="filtro-arrow" width="18" src="{{ MEDIA_ROOT }}home/slider/chevron-right.png">
+    </div>
+    <div id="tipo-operacion" class="filtro">
+        <p id="filtro-title">Tipo de operaci&oacute;n</p>
+        {% for tipo_op in tipos_operaciones %}
+            <p class="filtro-opcion" data-loop="{{forloop.counter}}">{{tipo_op.nombre}}</p>
+        {% endfor %}
+        <img class="filtro-arrow" width="18" src="{{ MEDIA_ROOT }}home/slider/chevron-right.png">
+    </div>
+    <div id="barrio" class="filtro">
+        <p id="filtro-title">Barrio</p>
+        {% for barrio in barrios %}
+            <p class="filtro-opcion" data-loop="{{forloop.counter}}">{{barrio.nombre}}</p>
+        {% endfor %}
+        <img class="filtro-arrow" width="18" src="{{ MEDIA_ROOT }}home/slider/chevron-right.png">
+    </div>
+</section>
+
 <section id="home-casas">
-    <h2>¿D&oacute;nde te gustar&iacute;a viv&iacute;r?</h2>
+    <h2>¿D&oacute;nde te gustar&iacute;a vivir?</h2>
     <img id="hc-left" class="hc-arrow" width="40" src="home/slider/chevron-left.png" alt="left">
     <div id="home-casas-cards">
         {% for barrio in barrios %}
         <div class="home-casa-card" data-url="{% url 'barrioX' barrio.slug %}">
-            <p class="casa-card-info">{{barrio.nombre}}</p>
-            <div class="image-container">
-                <img class="image1" src="{{ barrio.imagen.url }}" alt="{{barrio.nombre}} imágen">
-            </div>
-        </div>
-        {% endfor %}
-        {% for barrio in barrios %}
-        <div class="home-casa-card" data-url="{% url 'barrioX' barrio.slug %}">
-            <p class="casa-card-info">{{barrio.nombre}}</p>
+            <p class="casa-card-info">{{barrio.nombre|upper}}</p>
             <div class="image-container">
                 <img class="image1" src="{{ barrio.imagen.url }}" alt="{{barrio.nombre}} imágen">
             </div>

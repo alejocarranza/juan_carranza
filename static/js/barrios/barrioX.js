@@ -68,25 +68,6 @@ addEventListener("DOMContentLoaded", e=>{
         };
     })(document, window);
 
-    // BOTONES DE FILTROS
-    ((d)=>{
-        const $filtros= d.querySelectorAll(".filtro");
-        let top, dataloop;
-        $filtros.forEach($filtro=>{
-            console.log($filtro)
-            const $childrens= $filtro.querySelectorAll(".filtro-opcion");
-
-            $childrens.forEach($children=>{
-                console.log($children)
-                dataloop= $children.getAttribute("data-loop");
-                total_padding= dataloop * 8
-                total_font= (dataloop-1) * 1
-                top= `calc(${dataloop}em + 18px + ${total_padding}px + ${total_font}em)`;
-                $children.style.top=  top;
-            });
-        });
-    })(document);
-
     // EFECTOS AL APARECER EN PANTALLA
     ((d, w)=>{
         // EFECTO DEL HOME CASAS

@@ -48,75 +48,51 @@
     color: var(--back-color-hover);
 }
 
-
-/* FILTROS */
-#filtros{
-    width: 75%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 30px auto 8px auto;
+/* QUIENES SOMOS */
+#quienes-somos > *{
+    color: rgb(80, 80, 80);
 }
 
-.filtro, .filtro-opcion{
-    background-color: var(--main-color);
-    color: var(--back-color);
-    width: 100%;
+#quienes-somos{
+    width: 62%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
     text-align: center;
 }
 
-.filtro{
-    width: 30%;
-    padding: 14px 0;
-    margin: 0 12px;
-    border-radius: 8px;
-    position: relative;
+#qs-title{
+    font-size: 1.05em;
+    font-weight: 100;
+    margin-top: 35px;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
 }
 
-.filtro-arrow{
-    transform: rotate(90deg);
-    position: absolute;
-    right: 5%;
-    top: calc(50% - 8px);
-    transition: all .5s ease;
+#qs-separator{
+    width: 140px;
+    height: 35px;
+    border-top: 2px solid var(--main-color);
 }
 
-.filtro-opcion{
-    transition: all .3s ease;
-    display: none;
-    opacity: 0;
-    z-index: 999;
-    border-top: .5px solid rgba(0,0,0,0.2);
-    padding: 10px 0 10px 12px;
+#qs-subtitle{
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
 }
 
-.filtro:hover{
-    cursor: pointer;
-    border-radius: 8px 8px 0 0;
-}
-
-.filtro:hover > .filtro-opcion{
-    display: flex;
-    opacity: 1;
-    position: absolute;
-}
-
-.filtro:hover > .filtro-arrow{
-    transform: rotate(90);
-    transform: translateY(-2px);
-}
-
-.filtro-opcion:hover{
-    background-color: var(--main-color-hover);
-}
-
-.filtro .filtro-opcion:last-of-type{
-    border-radius: 0 0 8px 8px;
+.qs-text{
+    font-size: 1em;
+    margin-bottom: 12px;
+    line-height: 1.4em;
+    letter-spacing: .5px;
 }
 
 /* SECCION CASAS */
 #home-casas{
-    margin-top: 0px;
+    margin-top: 12px;
     position: relative;
     margin-bottom: 0px;
 }
