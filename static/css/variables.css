@@ -5,6 +5,8 @@
     --font-secondary-color: /*#2C4156*/#0D0C1D;
     --main-color: /*#2F3937*/ #2C4156;
     --main-color-hover: /*#242c2b*/ #253b50;
+    --main-color-contrast: #1b2c3d;
+    --main-color-contrast-hover: #162636;
     --form-contact-color: #d3cec7;
     --second-color: #2F3937;
     --second-color-hover: #222c2a;    

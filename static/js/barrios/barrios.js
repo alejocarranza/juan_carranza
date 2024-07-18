@@ -69,23 +69,66 @@ addEventListener("DOMContentLoaded", e=>{
     })(document, window);
 
     // BOTONES DE FILTROS
-    ((d)=>{
-        const $filtros= d.querySelectorAll(".filtro");
-        let top, dataloop;
+    ((d, w)=>{
+        const $filtros= d.querySelectorAll(".filtro"),
+            $aplicar_btn= d.getElementById("aplicar");
+        let top, dataloop, total_ticked= false;
         $filtros.forEach($filtro=>{
-            console.log($filtro)
             const $childrens= $filtro.querySelectorAll(".filtro-opcion");
 
             $childrens.forEach($children=>{
-                console.log($children)
                 dataloop= $children.getAttribute("data-loop");
                 total_padding= dataloop * 8
                 total_font= (dataloop-1) * 1
                 top= `calc(${dataloop}em + 18px + ${total_padding}px + ${total_font}em)`;
                 $children.style.top=  top;
+
+                $children.addEventListener("click", ()=>{
+                    total_ticked= 0;
+                    $children.querySelector(".untick").classList.toggle("no-display");
+                    $children.querySelector(".tick").classList.toggle("no-display");
+                    $children.classList.toggle("selected");
+                    $children.classList.toggle("child-selected")
+                    $childrens.forEach($children1=>{
+                        if($children1.classList.contains("selected")){
+                            total_ticked+= 1;
+                        };
+                    });
+                    if(total_ticked>= 1 && !$children.parentElement.classList.contains("selected")){
+                        $children.parentElement.classList.toggle("selected");
+                        $children.parentElement.classList.toggle("parent-selected")
+                    } else if(total_ticked==0 && $children.parentElement.classList.contains("selected")) {
+                        $children.parentElement.classList.toggle("selected");
+                        $children.parentElement.classList.toggle("parent-selected")
+                    };
+                });
             });
         });
-    })(document);
+
+        $aplicar_btn.addEventListener("click", ()=>{
+            const $filtros1= d.querySelectorAll(".parent-selected");
+            let texto= "";
+
+            console.log($filtros1)
+
+            $filtros1.forEach($filtro=>{
+                texto+= `-0${$filtro.getAttribute("data-filtro")}`;
+                $aplicados= $filtro.querySelectorAll(".child-selected");
+
+                $aplicados.forEach($aplicado=>{
+                    texto+= `-1${$aplicado.getAttribute("data-opcion")}`;
+                });
+            });
+
+            texto= [...texto].slice(1).join('');
+            
+            let url= $aplicar_btn.getAttribute("data-url");
+            if (texto){
+                url= url.replace("None", texto);
+            };
+            w.location.href= url;
+        });
+    })(document, window);
 
     // EFECTOS AL APARECER EN PANTALLA
     ((d, w)=>{

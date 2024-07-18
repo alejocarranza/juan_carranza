@@ -21,7 +21,7 @@
 
 <section id="home-casas">
     <h2>Eleg&iacute; tu casa ideal!</h2>
-    <img id="hc-left" class="hc-arrow" width="40" src="home/slider/chevron-left.png" alt="left">
+    <img id="hc-left" class="hc-arrow" width="40" src="home/chevron-left.png" alt="left">
     <div id="home-casas-cards">
         {% for casa, imagen in combined_data %}
         <div class="home-casa-card" data-url="{% url 'casas' barrio.slug casa.slug %}">
@@ -34,7 +34,7 @@
         <p><strong> Sin disponibilidad</strong></p>
         {% endfor %}
     </div>
-    <img id="hc-right" class="hc-arrow" width="40" src="{{ MEDIA_ROOT }}home/slider/chevron-right.png" alt="right">
+    <img id="hc-right" class="hc-arrow" width="40" src="{{ MEDIA_ROOT }}home/chevron-right.png" alt="right">
 </section>
 
 {% endblock %}
