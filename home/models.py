@@ -4,9 +4,26 @@ from jsonfield import JSONField
 # Create your models here.
 
 class Informacion(models.Model):
+    ID= models.AutoField(primary_key= True)
     # Info general
     nombre= models.CharField(verbose_name="Nombre de la inmobiliaria", max_length= 70)
-    descripcion= models.TextField(verbose_name="Descrpción breve de la inmobiliaria" , max_length=300)
+    descripcion= models.TextField(verbose_name="Descripción breve de la inmobiliaria" , max_length=200)
+
+    # Página home
+    negrito= models.CharField(verbose_name= "Titulo en negrito de la página de home", max_length= 20)
+    gris= models.CharField(verbose_name= "Titulo en gris de la página de home", max_length= 30)
+    home_text= models.TextField(verbose_name= "Texto principal de la página de home", max_length= 200)
+
+    titulo_casas_home= models.CharField(verbose_name= "Titulo que aparece arriba de las casas del home", max_length= 20)
+
+    titulo_contacto_home= models.CharField(verbose_name= "Titulo de los pasos de contacto del home", max_length= 24)
+    titulo_uno_contacto= models.CharField(verbose_name= "Titulo del primer paso de contacto del home", max_length= 28)
+    texto_uno_contacto= models.TextField(verbose_name= "Texto del primer paso de contacto del home", max_length=110)
+    titulo_dos_contacto= models.CharField(verbose_name= "Titulo del segundo paso de contacto del home", max_length= 28)
+    texto_dos_contacto= models.TextField(verbose_name= "Texto del segundo paso de contacto del home", max_length=110)
+    titulo_tres_contacto= models.CharField(verbose_name= "Titulo del tercer paso de contacto del home", max_length= 28)
+    texto_tres_contacto= models.TextField(verbose_name= "Texto del tercer paso de contacto del home", max_length=110)
+    ultimo_texto_contacto= models.TextField(verbose_name= "Texto de la última caja de pasos de contactos del home", max_length=110)
 
     # Medio de contacto
     numero= models.PositiveIntegerField(verbose_name="Numero de telefono para contactarse con la inmobiliaria")
@@ -20,18 +37,19 @@ class Informacion(models.Model):
 
     imagen1= models.ImageField(verbose_name="Imágen del texto ubicado a la izquierda de la segunda sección de la página nosotros", upload_to= "nosotros/seccion2/imagenes")
     subtitulo1= models.CharField(verbose_name="Subtitulo del texto ubicado a la izquierda de la segunda sección de la página nosotros", max_length= 40)
-    titulo1= models.CharField(verbose_name="Título del texto ubicado a la izquierda de la segunda sección de la página nosotros", max_length= 30)
-    texto1= models.CharField(verbose_name="Texto ubicado a la izquierda de la segunda sección de la página nosotros", max_length= 250)
+    titulo1= models.TextField(verbose_name="Título del texto ubicado a la izquierda de la segunda sección de la página nosotros", max_length= 30)
+    texto1= models.TextField(verbose_name="Texto ubicado a la izquierda de la segunda sección de la página nosotros", max_length= 250)
 
     imagen2= models.ImageField(verbose_name="Imágen del texto ubicado a la derecha de la segunda sección de la página nosotros", upload_to= "nosotros/seccion2/imagenes")
     subtitulo2= models.CharField(verbose_name="Subtitulo del texto ubicado a la derecha de la segunda sección de la página nosotros", max_length= 40)
-    titulo2= models.CharField(verbose_name="Título del texto ubicado a la derecha de la segunda sección de la página nosotros", max_length= 30)
-    texto2= models.CharField(verbose_name="Texto ubicado a la derecha de la segunda sección de la página nosotros", max_length= 250)
+    titulo2= models.TextField(verbose_name="Título del texto ubicado a la derecha de la segunda sección de la página nosotros", max_length= 30)
+    texto2= models.TextField(verbose_name="Texto ubicado a la derecha de la segunda sección de la página nosotros", max_length= 250)
 
     # FALTA AGREGAR UNA PARTE DE LA PÁGINA NOSOTROS
 
     class Meta:
         verbose_name= "Información general"
+        verbose_name_plural= "Información general"
 
     def __str__(self):
         return self.nombre

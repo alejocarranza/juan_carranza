@@ -67,7 +67,7 @@
 
 .filtro{
     width: 28%;
-    padding: 14px 0;
+    padding: 11px 0;
     margin: 0 12px;
     border-radius: 8px;
     position: relative;
@@ -142,7 +142,7 @@
     align-items: center;
     background-color: var(--main-color-contrast);
     color: var(--back-color);
-    padding: 12px 14px;
+    padding: 11px 14px;
     margin-left: 20px;
     transition: background-color .3s ease;
 }

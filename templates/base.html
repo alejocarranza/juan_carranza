@@ -63,12 +63,12 @@
 
                 <div class="c-inline">
                     <img class="c-image" src="{{ MEDIA_ROOT }}/base/contacto/mensaje.png" alt="mensaje">
-                    <p class="c-inline-text"> (+54) 9 3515 12-1570 </p>
+                    <p class="c-inline-text"> {{informacion.numero}} </p>
                 </div>
 
                 <div class="c-inline">
                     <img class="c-image" src="{{ MEDIA_ROOT }}/base/contacto/mail.png" alt="mail">
-                    <p class="c-inline-text"> jfcar000@gmail.com </p>
+                    <p class="c-inline-text"> {{informacion.mail}} </p>
                 </div>
             </div>
 
@@ -85,29 +85,29 @@
         <footer>
             <div id="f-first">
                 <div class="f-section" id="f-first-first">
-                    <h3>Nombre.</h3>
-                    <p class="f-text">RCaffaratti Inmobiliaria®, es una empresa familiar fundada en 1986 especializada en Alquiler y Venta de Propiedades en la Ciudad de Córdoba.</p>
+                    <h3>{{informacion.nombre}}</h3>
+                    <p class="f-text">{{informacion.descripcion}}</p>
                 </div>
                 <div class="f-section">
                     <h3>Barrios.</h3>
                     <ul>
-                        <li class="f-text">El Terrón</li>
-                        <li class="f-text">Q2</li>
-                        <li class="f-text">La Deseada</li>
+                        {% for barrio in barrios5 %}
+                        <li class="f-text">{{barrio.nombre}}</li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="f-section" id="f-contactanos">
                     <h3>Contactanos.</h3>
                     <ul id="f-contactanos">
-                        <li class="f-text">(+54) 9 3515 12-1570</li>
-                        <li class="f-text">jfcar000@gmail.com</li>
-                        <li class="f-text">@juancarranza000</li>
+                        <li class="f-text">{{informacion.numero}}</li>
+                        <li class="f-text">{{informacion.mail}}</li>
+                        <li class="f-text">@{{informacion.ig}}</li>
                     </ul>
                 </div>
             </div>
             
             <div id="f-last">
-                <p>© Nombre - Todos los derechos reservados</p>
+                <p>©{{informacion.nombre}} - Todos los derechos reservados</p>
             </div>
         </footer>
 

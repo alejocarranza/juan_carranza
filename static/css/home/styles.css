@@ -7,7 +7,6 @@
 
 .slider-image{
     width: 100%;
-    height: 40vw;
     object-fit: cover;
     transition: all .7s ease-in;
     position: absolute;
@@ -27,7 +26,8 @@
     position: absolute;
     height: 40px;
     z-index: 999;
-    background:linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0.2), rgba(0,0,0,0));
+    background:linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0.05), rgba(0,0,0,0));
+    top: calc(50% - 20px);
 }
 #a-left{
     left: 10px;
@@ -35,76 +35,86 @@
 #a-right{
     right: 10px;
 }
- /* El slider responsive */
-@media(max-width: 499px){
-    .slider-image{
-        clip-path: inset(0 0 0 200vw);
-        width: calc(100% + 200vw);
-        left: -200vw;
-        height: 120vw;
-    }
 
-    .s-arrow{
-        top: calc(60vw - 20px);
+@media (max-width: 400px){
+    .slider-image{
+        height: 180px;
     }
 
     #slider{
-        height: 120vw;
+        height: 180px;
     }
 }
-@media (min-width: 500px) and (max-width: 799px){
+@media (min-width: 400px){
     .slider-image{
-        clip-path: inset(0 0 0 100vw);
-        width: calc(100% + 100vw);
-        left: -100vw;
-        height: 80vw;
-    }
-
-    .s-arrow{
-        top: calc(40vw - 20px);
+        height: 252px;
     }
 
     #slider{
-        height: 80vw;
+        height: 252px;
     }
 }
-@media (min-width: 800px) and (max-width: 1099px){
+@media (min-width: 600px){
     .slider-image{
-        clip-path: inset(0 0 0 55vw);
-        width: calc(100% + 55vw);
-        left: -55vw;
-        height: 62vw;
-    }
-
-    .s-arrow{
-        top: calc(31vw - 20px);
+        height: 378px;
     }
 
     #slider{
-        height: 62vw;
+        height: 378px;
     }
 }
-@media (min-width: 1100px){
+@media (min-width: 800px){
+    .slider-image{
+        height: 504px;
+    }
+
+    #slider{
+        height: 504px;
+        position: relative;
+        transform: translateY(-60px);
+    }
+}
+@media (min-width: 1000px){
+    .slider-image{
+        height: 630px;
+    }
+
+    #slider{
+        height: 630px;
+    }
+}
+@media (min-width: 1200px){
+    .slider-image{
+        height: 680px;
+    }
+    #slider{
+        height: 680px;
+    }
     .s-arrow{
-        top: calc(19.52vw - 20px);
         visibility: hidden;
         opacity: 0;
         cursor: pointer;
     }
-
     #slider:hover > .s-arrow{
         visibility: visible;
         opacity: 1;
     }
 }
 
-
 /* SEGUNDA SECCION */
 #home-text{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 55px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+@media (min-width: 800px){
+    #home-text{
+        margin-top: 0px;
+        transform: translateY(-20px);
+        margin-bottom: 0px;
+    }
 }
 
 #home-text *{
@@ -146,7 +156,6 @@
 
 /* SECCION CASAS */
 #home-casas{
-    margin-top: 12px;
     position: relative;
     margin-bottom: 50px;
 }

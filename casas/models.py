@@ -23,7 +23,6 @@ class Barrio(models.Model):
 class Imagen(models.Model):
     imagen= models.ImageField(upload_to= "casas/imagenes/")
     opciones= (
-        ("principal", "principal"),
         ("avance_de_obra", "avance_de_obra"),
         ("exteriores", "exteriores"),
         ("interiores", "interiores"),
@@ -63,6 +62,7 @@ class TipoOperacion(models.Model):
 
 class Casa(models.Model):
     nombre= models.CharField(max_length=80)
+    descripcion= models.TextField(verbose_name= "Descripción acotada de la casa", max_length=120)
     direccion= models.ForeignKey(Barrio, on_delete=models.CASCADE)
     slug= models.SlugField(max_length=100)
     lote= models.IntegerField(null=True, blank=True)
@@ -70,6 +70,9 @@ class Casa(models.Model):
     calle= models.CharField(max_length= 80, blank= True, null= True)
     altura= models.PositiveIntegerField(blank= True, null= True)
     codigo_postal= models.PositiveIntegerField(blank= True, null= True)
+    imagen_principal= models.ImageField(verbose_name= "Imágen principal con dimensiones 4x3 (ancho x alto)", upload_to="casas/imagenes/principales")
+    imagen_principal1= models.ImageField(verbose_name= "Imágen principal con dimensiones 16x9 (ancho x alto)", upload_to="casas/imagenes/secundaria")
+    imagen_principal2= models.ImageField(verbose_name= "Imágen principal con dimensiones 3x4 (ancho x alto)", upload_to="casas/imagenes/terciaria")
     imagenes= models.ManyToManyField(Imagen)
     informacion= JSONField(verbose_name="Información adicional")
 

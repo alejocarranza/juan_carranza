@@ -38,6 +38,21 @@ header{
     box-shadow:5px 5px 10px rgba(0,0,0,0.3);
     height: 60px;
 }
+@media (min-width: 800px){
+    .home-header{
+        background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0,0,0,0.001));
+        box-shadow: none;
+        position: sticky;
+        z-index: 999;
+    }
+    .home-menu > li > a{
+        color: var(--back-color) !important;
+        transition: color .3s ease;
+    }
+    .home-menu > li > a:hover{
+        color: var(--back-color-hover) !important;
+    }
+}
 
 #logo{
     cursor: pointer;
@@ -75,47 +90,6 @@ header{
 
 @media (min-width: 800px) {
     /* La hago hovered */
-    .container-submenu{
-        position: relative;
-    }
-
-    .submenu{
-        list-style: none;
-        position: absolute;
-        left: 8px;
-        top: 28px;
-        transition: all 0.3s ease 0s;
-        z-index: 1000;
-        overflow: hidden;
-        opacity: 0;
-        display: none;
-        border-radius: 50px;
-    }
-    .container-submenu:hover .submenu{
-        overflow: visible;
-        opacity: 1;
-        display: block;
-    }
-
-    .submenu__item:first-child{
-        border-radius: 6px 6px 0 0;
-    }
-    .submenu__item:last-child{
-        border-radius: 0 0 6px 6px;
-    }
-    .submenu__item{
-        background-color: var(--back-color-hover);
-        padding: 16px 22px;
-        width: 150px;
-        cursor: pointer;
-        border-bottom: 1px solid var(--back-color);
-        transition: all .3s ease;
-    }
-    .submenu__item:hover{
-        background-color: var(--back-color);
-        border-bottom: 1px solid var(--back-color);
-    }
-
     .menu > li{
         padding: 0px 20px;
     }

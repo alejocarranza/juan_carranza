@@ -19,6 +19,46 @@
     <p class="qs-text">{{barrio.descripcion}} </p>
 </section>
 
+<section id="filtros">
+    <div id="tipo-propiedad" class="filtro" data-filtro="tipo_prop">
+        <p id="filtro-title">Tipo de propiedad</p>
+        {% for tipo_prop in tipos_propiedades %}
+            <div class="filtro-opcion" id="{{tipo_prop.slug}}" data-loop="{{forloop.counter}}">
+                <p> {{tipo_prop.nombre}} </p>
+                <img class="untick tick-option" src="{{ MEDIA_ROOT }}home/untick.png">
+                <img class="tick tick-option no-display" src="{{ MEDIA_ROOT }}home/tick.png">
+            </div>
+        {% endfor %}
+        <img class="filtro-arrow" width="18" src="{{ MEDIA_ROOT }}home/chevron-right.png">
+    </div>
+    <div id="tipo-operacion" class="filtro" data-filtro="tipo_op">
+        <p id="filtro-title">Tipo de operaci&oacute;n</p>
+        {% for tipo_op in tipos_operaciones %}
+            <div class="filtro-opcion" id="{{tipo_op.slug}}" data-loop="{{forloop.counter}}">
+                <p> {{tipo_op.nombre}} </p>
+                <img class="untick tick-option" src="{{ MEDIA_ROOT }}home/untick.png">
+                <img class="tick tick-option no-display" src="{{ MEDIA_ROOT }}home/tick.png">
+            </div>
+        {% endfor %}
+        <img class="filtro-arrow" width="18" src="{{ MEDIA_ROOT }}home/chevron-right.png">
+    </div>
+    <div id="barrio" class="filtro" data-filtro="barrio">
+        <p id="filtro-title">Barrio</p>
+        {% for barrio in barrios %}
+            <div class="filtro-opcion" id="{{barrio.slug}}" data-loop="{{forloop.counter}}">
+                <p> {{barrio.nombre}} </p>
+                <img class="untick tick-option" src="{{ MEDIA_ROOT }}home/untick.png">
+                <img class="tick tick-option no-display" src="{{ MEDIA_ROOT }}home/tick.png">
+            </div>
+        {% endfor %}
+        <img class="filtro-arrow" width="18" src="{{ MEDIA_ROOT }}home/chevron-right.png">
+    </div>
+    <div id="aplicar" data-url="{{url}}">
+        <p>Aplicar</p>
+        <p id="parametros" class="no-display">["{{barrio.slug}}"]</p>
+    </div>
+</section>
+
 <section id="home-casas">
     <h2>Eleg&iacute; tu casa ideal!</h2>
     <img id="hc-left" class="hc-arrow" width="40" src="home/chevron-left.png" alt="left">

@@ -80,7 +80,7 @@ addEventListener("DOMContentLoaded", e=>{
                 dataloop= $children.getAttribute("data-loop");
                 total_padding= dataloop * 8
                 total_font= (dataloop-1) * 1
-                top= `calc(${dataloop}em + 18px + ${total_padding}px + ${total_font}em)`;
+                top= `calc(${dataloop}em + 16px + ${total_padding}px + ${total_font}em)`;
                 $children.style.top=  top;
 
                 $children.addEventListener("click", ()=>{
@@ -116,7 +116,7 @@ addEventListener("DOMContentLoaded", e=>{
                 $aplicados= $filtro.querySelectorAll(".child-selected");
 
                 $aplicados.forEach($aplicado=>{
-                    texto+= `-1${$aplicado.getAttribute("data-opcion")}`;
+                    texto+= `-1${$aplicado.getAttribute("id")}`;
                 });
             });
 

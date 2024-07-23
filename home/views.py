@@ -12,12 +12,14 @@ def home(request):
         casasImagen[casas[i].slug]= {
             "nombre": casas[i].nombre, 
             "imagen_principal": {
-                "url": casas[i].imagenes.get(opcion= "principal").imagen.url,
-                "slug": casas[i].imagenes.get(opcion= "principal").slug,
+                "url": casas[i].imagen_principal.url,
+            },
+            "imagen_principal1": {
+                "url": casas[i].imagen_principal1.url,
             },
         }
 
     params= {
-        "casasImagen": casasImagen
+        "casasImagen": casasImagen,
     }
     return render(request, 'home/index.html', params)

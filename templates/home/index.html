@@ -11,11 +11,11 @@
     <img id="a-left" class="s-arrow" src="{{ MEDIA_ROOT }}home/slider/chevron-left.png" alt="left">
     {% for slug, casa in casasImagen.items %}
     {% if forloop.first %}
-    <img id="s-first" class="slider-image s-active" src="{{ casa.imagen_principal.url }}" alt="{{ casa.imagen_principal.slug }}">
+    <img id="s-first" class="slider-image s-active" src="{{ casa.imagen_principal1.url }}" alt="{{ casa.imagen_principal.slug }}">
     {% elif forloop.last %}
-    <img id="s-last" class="slider-image" src="{{ casa.imagen_principal.url }}" alt="{{ casa.imagen_principal.slug }}">
+    <img id="s-last" class="slider-image" src="{{ casa.imagen_principal1.url }}" alt="{{ casa.imagen_principal.slug }}">
     {% else %}
-    <img class="slider-image" src="{{ casa.imagen_principal.url }}" alt="{{ casa.imagen_principal.slug }}">
+    <img class="slider-image" src="{{ casa.imagen_principal1.url }}" alt="{{ casa.imagen_principal.slug }}">
     {% endif %}
     {% empty %}
     <p> No hay imágenes </p>
@@ -26,22 +26,22 @@
 <section id="home-text">
     <div id="ht-top">
         <div id="ht-border-top"></div>
-        <h2 id="ht-top-title">OFRECEMOS VALOR</h2>
-        <p id="ht-top-text">EN CADA METRO CONSTRUÍDO</p>
+        <h2 id="ht-top-title">{{informacion.negrito}}</h2>
+        <p id="ht-top-text">{{informacion.gris}}</p>
         <div id="ht-border-bottom"></div>
     </div>
-    <p id="ht-main">La creatividad, combinada con la flexibilidad, y respaldada por la trayectoria, nos asegura precisión en cada paso, calidez en cada acción y la constante innovación en cada negocio.</p>
+    <p id="ht-main">{{informacion.home_text}}</p>
 </section>
 
 <section id="home-casas">
-    <h2 id="hc-title">NUESTRAS CASAS</h2>
+    <h2 id="hc-title">{{informacion.titulo_casas_home}}</h2>
     <img id="hc-left" class="hc-arrow" width="40" src="{{ MEDIA_ROOT }}home/slider/chevron-left.png" alt="left">
     <div id="home-casas-cards">
         {% for slug, casa in casasImagen.items %}
         <div class="home-casa-card" data-url="{{slug}}">
             <p class="casa-card-info">{{casa.nombre}}</p>
             <div class="image-container">
-                <img class="image1" src="{{ casa.imagen_principal.url }}" alt="{{casa.imagen_principal.slug}}">
+                <img class="image1" src="{{ casa.imagen_principal.url }}" alt="imagen principal de {{casa.nombre}}">
             </div>
             <p class="casa-card-mas">CONOCER MÁS</p>
         </div>
@@ -58,31 +58,28 @@
 </section>
 
 <section id="home-contactarnos">
-    <h2> ¿Cómo contactarnos? </h2>
+    <h2> {{informacion.titulo_contacto_home}} </h2>
     <!-- <h2>Contáctanos en tres pasos!</h2> -->
     <div id="contact-text">
         <div id="contact-steps">
             <div class="contact-step" id="c-step1">
                 <p class="c-step-num">1</p>
-                <h3 class="c-step-title">Realizá tu consulta</h3>
-                <p class="c-step-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas quis </p>
+                <h3 class="c-step-title">{{informacion.titulo_uno_contacto}}</h3>
+                <p class="c-step-text">{{informacion.texto_uno_contacto}}</p>
             </div>
             <div class="contact-step" id="c-step2">
                 <p class="c-step-num">2</p>
-                <h3 class="c-step-title">Coordinamos reunión</h3>
-                <p class="c-step-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas quis eaque tenetur hic voluptas 
-                sapiente</p>
+                <h3 class="c-step-title">{{informacion.titulo_dos_contacto}}</h3>
+                <p class="c-step-text">{{informacion.texto_dos_contacto}}</p>
             </div>
             <div class="contact-step c-step-hovered" id="c-step3">
                 <p class="c-step-num">3</p>
-                <h3 class="c-step-title">Último paso</h3>
-                <p class="c-step-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas quis eaque tenetur hic voluptas 
-                sapiente</p>
+                <h3 class="c-step-title">{{informacion.titulo_dos_contacto}}</h3>
+                <p class="c-step-text">{{informacion.texto_dos_contacto}}</p>
             </div>
         </div>
         <div id="contact-link">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Placeat, magni. </p>
+            <p>{{informacion.ultimo_texto_contacto}} </p>
             <a id="c-step-btn" href="#contact">Contactar</a>
         </div>
     </div>

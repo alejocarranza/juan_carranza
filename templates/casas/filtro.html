@@ -16,7 +16,7 @@
     <div id="tipo-propiedad" class="filtro" data-filtro="tipo_prop">
         <p id="filtro-title">Tipo de propiedad</p>
         {% for tipo_prop in tipos_propiedades %}
-            <div class="filtro-opcion" data-opcion="{{tipo_prop.slug}}" data-loop="{{forloop.counter}}">
+            <div class="filtro-opcion" id="{{tipo_prop.slug}}" data-loop="{{forloop.counter}}">
                 <p> {{tipo_prop.nombre}} </p>
                 <img class="untick tick-option" src="{{ MEDIA_ROOT }}home/slider/untick.png">
                 <img class="tick tick-option no-display" src="{{ MEDIA_ROOT }}home/slider/tick.png">
@@ -27,7 +27,7 @@
     <div id="tipo-operacion" class="filtro" data-filtro="tipo_op">
         <p id="filtro-title">Tipo de operaci&oacute;n</p>
         {% for tipo_op in tipos_operaciones %}
-            <div class="filtro-opcion" data-opcion="{{tipo_op.slug}}" data-loop="{{forloop.counter}}">
+            <div class="filtro-opcion" id="{{tipo_op.slug}}" data-loop="{{forloop.counter}}">
                 <p> {{tipo_op.nombre}} </p>
                 <img class="untick tick-option" src="{{ MEDIA_ROOT }}home/slider/untick.png">
                 <img class="tick tick-option no-display" src="{{ MEDIA_ROOT }}home/slider/tick.png">
@@ -38,7 +38,7 @@
     <div id="barrio" class="filtro" data-filtro="barrio">
         <p id="filtro-title">Barrio</p>
         {% for barrio in barrios %}
-            <div class="filtro-opcion" data-opcion="{{barrio.slug}}" data-loop="{{forloop.counter}}">
+            <div id="{{barrio.slug}}" class="filtro-opcion" data-loop="{{forloop.counter}}">
                 <p> {{barrio.nombre}} </p>
                 <img class="untick tick-option" src="{{ MEDIA_ROOT }}home/slider/untick.png">
                 <img class="tick tick-option no-display" src="{{ MEDIA_ROOT }}home/slider/tick.png">
@@ -48,11 +48,12 @@
     </div>
     <div id="aplicar" data-url="{{url}}">
         <p>Aplicar</p>
+        <p id="parametros" class="no-display">{{filtros}}</p>
     </div>
 </section>
 
 <section id="home-casas">
-    <h2>¿D&oacute;nde te gustar&iacute;a vivir?</h2>
+    <h2>Eleg&iacute; tu casa ideal!</h2>
     <img id="hc-left" class="hc-arrow" width="40" src="home/slider/chevron-left.png" alt="left">
     <div id="home-casas-cards">
         {% for casa, imagen in combined_data %}
@@ -62,12 +63,15 @@
                 <img class="image1" src="{{ imagen }}" alt="{{casa.nombre}} imágen">
             </div>
         </div>
+        {% empty %}
+        <p>No hay propiedades disponibles que cumplan con tus condiciones.</p>
         {% endfor %}
     </div>
-    <img id="hc-right" class="hc-arrow" width="40" src="{{ MEDIA_URL }}home/slider/chevron-right.png" alt="right">
+    <img id="hc-right" class="hc-arrow" width="40" src="home/slider/chevron-right.png" alt="right">
 </section>
+
 
 
 {% endblock %}
 
-{% block script %} <script src="{% static 'js/barrios/barrios.js' %}"></script> {% endblock %}
+{% block script %} <script src="{% static 'js/casas/filtros.js' %}"></script> {% endblock %}

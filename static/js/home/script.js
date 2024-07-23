@@ -1,5 +1,10 @@
 addEventListener("DOMContentLoaded", e=>{
-    
+    // HEADER INVISIBLE
+    ((d, w)=>{
+        d.querySelector("header").classList.toggle("home-header");
+        d.querySelector(".menu").classList.toggle("home-menu");
+    })(document, window);
+
     // SLIDER
     (d=>{ 
         // Hago las flechas del slider
@@ -230,8 +235,8 @@ addEventListener("DOMContentLoaded", e=>{
             }; 
 
             function dissapearHT(){
-                $borderTop.style.setProperty("transform", "translateX(-500px)");
-                $borderBottom.style.setProperty("transform", "translateX(500px)");
+                $borderTop.style.setProperty("transform", "translateX(-50%)");
+                $borderBottom.style.setProperty("transform", "translateX(50%)");
                 $htTitle.style.setProperty("opacity", "0");
                 $htText.style.setProperty("opacity", "0");
                 $mainText.style.setProperty("transform", "translateY(30px)");
