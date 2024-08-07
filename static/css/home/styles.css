@@ -122,6 +122,8 @@
 }
 
 #home-text > p{
+    width: 90%;
+    margin: auto;
     max-width: 570px;
     text-align: center;
     margin-top: 16px;
@@ -158,6 +160,7 @@
 #home-casas{
     position: relative;
     margin-bottom: 50px;
+    width: 100%;
 }
 
 #home-casas > h2{
@@ -255,12 +258,13 @@
 /* COMO CONTACTARNOS */
 #home-contactarnos{
     margin-top: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
 #home-contactarnos > h2{
-    width: 100%;
+    width: 85%;
     text-align: center;
+    margin: auto;
     font-size: 2.2em;
     color: var(--main-color);
 }
@@ -269,7 +273,7 @@
     display: flex;
     flex-direction: row;
     width: 85%;
-    margin: 40px auto 80px auto;
+    margin: 40px auto 60px auto;
 }
 
 #contact-steps{
@@ -356,7 +360,7 @@
 
 
 
-@media (max-width: 1100px) {
+@media (min-width: 660px) and (max-width: 1100px) {
     #contact-text{
         min-height: 520px;
         position: relative;
@@ -397,4 +401,30 @@
         right: 1.5%;
     }
 }
-  
+@media (max-width: 650px){
+    #contact-text{
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+    }
+    #contact-steps{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-step{
+        border-radius: 0 !important;
+    }
+    #c-step1{
+        border-radius: 15px 15px 0 0 !important;
+    }
+    #contact-link{
+        width: 100%;
+        margin: auto;
+        border-radius: 0 0 15px 15px !important;
+        padding: 32px 12px;
+    }
+    #contact-link> p{
+        margin-bottom: 18px;
+    }
+}

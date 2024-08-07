@@ -82,7 +82,7 @@ class Casa(models.Model):
     baños= models.PositiveSmallIntegerField()
     ambientes= models.PositiveSmallIntegerField()
     precio= models.PositiveIntegerField(verbose_name="Precio en dolares de la casa")
-    video= models.FileField(upload_to= "casas/videos/")
+    video= models.CharField(verbose_name="Url del video de youtube de la casa", max_length=100)
 
     tipo_propiedad= models.ForeignKey(TipoPropiedad, on_delete=models.CASCADE)
     tipo_operacion= models.ForeignKey(TipoOperacion, on_delete=models.CASCADE)

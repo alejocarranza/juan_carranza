@@ -53,7 +53,6 @@ def barrioX(request, slugBarrio):
 def casas(request, slugBarrio, slugCasa):
     casa= Casa.objects.get(slug= slugCasa)
     barrio= casa.direccion
-    imagen_principal = casa.imagen_principal2.url
     imagenes_exteriores = get_images_by_option(slugCasa, 'exteriores')
     imagenes_interiores = get_images_by_option(slugCasa, 'interiores')
     imagenes_avances = get_images_by_option(slugCasa, 'avance_de_obra')
@@ -62,7 +61,6 @@ def casas(request, slugBarrio, slugCasa):
     params= {
         "casa": casa,
         "barrio": barrio,
-        "imagen_principal": imagen_principal,
         "imagenes_exteriores": imagenes_exteriores,
         "imagenes_interiores": imagenes_interiores,
         "imagenes_avances": imagenes_avances,

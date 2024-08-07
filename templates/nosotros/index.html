@@ -10,42 +10,31 @@
 <section id="nosotros-title">
     <h1 id="nt-text">NOSOTROS</h1>
     <div id="nt-border"></div>
-    <h2  id="nt-title">CARRANZA DESARROLLOS</h2>
+    <h2  id="nt-title">{{informacion.nombre}}</h2>
 </section>
 
 <section id="quienes-somos">
-    <h2 id="qs-title">¿QUIENES SOMOS?</h2>
+    <h2 id="qs-title">{{informacion.subtitulo_nosotros}}</h2>
     <div id="qs-separator"></div>
-    <h5 id="qs-subtitle"> ADMINISTRAMOS, COORDINAMOS Y SUPERVISAMOS DESARROLLOS INMOBILIARIOS </h5>
-    <p class="qs-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, magni, 
-        pariatur libero aut nam eum a assumenda laudantium id velit tenetur! 
-        Doloremque voluptate accusantium facere laborum error. Facilis ratione 
-        assumenda fugiat, mollitia tempora qui dolores provident accusamus 
-        invento. </p>
-    <p class="qs-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, magni, 
-        pariatur libero aut nam eum a assumenda laudantium id velit tenetur! 
-        Doloremque voluptate accusantium facere laborum error. </p>
+    <h5 id="qs-subtitle">{{informacion.titulo_nosotros}}</h5>
+    <p class="qs-text">{{informacion.texto_nosotros}}</p>
 </section>
 
 <section id="estrategia">
     <div id="estrategia-container">
         <div class="est-son" id="est-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/2636/2636300.png" alt="uno">
-            <h4>NUESTRO PROPÓSITO</h4>
-            <h3>Misión</h3>
-            <p>Planear, dirigir y controlar proyectos para asegurar la calidad esperada, 
-                sin rebasar los recursos establecidos y mediante procesos de control 
-                eficientes que logren la satisfacción del cliente y proveedores.</p>
+            <!--<img src="https://cdn-icons-png.flaticon.com/512/2636/2636300.png" alt="uno">-->
+            <img width="100" height="70" src="{{ informacion.imagen1_nosotros.url }}" alt="uno">
+            <h4>{{informacion.subtitulo1_nosotros}}</h4>
+            <h3>{{informacion.titulo1_nosotros}}</h3>
+            <p>{{informacion.texto1_nosotros}}</p>
         </div>
         <div class="est-son" id="est-right">
-            <img src="https://www.globalpropiedadgestion.com/wp-content/uploads/2016/06/logo-defensa-contribuyente-400x400.png" alt="dos">
-            <h4>NUESTRAS CREENCIAS</h4>
-            <h3>Valores</h3>
-            <p>Compromiso</p>
-            <p>Honestidad</p>    
-            <p>Responsabilidad</p>    
-            <p>Respeto</p>    
-            <p>Trabajo en Equipo Innovación</p>
+            <!--<img src="https://www.globalpropiedadgestion.com/wp-content/uploads/2016/06/logo-defensa-contribuyente-400x400.png" alt="dos">-->
+            <img width="100" height="70" src="{{ informacion.imagen2_nosotros.url }}" alt="dos">
+            <h4>{{informacion.subtitulo2_nosotros}}</h4>
+            <h3>{{informacion.titulo2_nosotros}}</h3>
+            <p>{{informacion.texto2_nosotros}}</p>
         </div>
     </div>
 </section>

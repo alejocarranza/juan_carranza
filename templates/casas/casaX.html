@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load custom_filters %}
 
 {% block title %} {{ casa.nombre }} {% endblock %}
 {% block style %} <link rel="stylesheet" href="{% static 'css/casas/casaX/styles.css' %}"> {% endblock %}
@@ -9,40 +10,54 @@
 <main>
     <div id="casa-left">
         <div>
-            <h3> {{casa.direccion}} </h3>
-            <h2> {{casa.nombre}} </h2>
-            <p> {{casa.descripcion}} </p>
+            <h3 id="house-direction"> {{casa.direccion}} </h3>
+            <h2 id="house-name"> {{casa.nombre}} </h2>
+            <p id="mini-description"> {{casa.descripcion}} </p>
         </div>
     </div>
-    <img id="casa-right" src="{{ imagen_principal }}" alt="Imagen de la casa">
+    <img id="casa-right" src="{{ casa.imagen_principal.url }}" alt="Imagen de la casa">
 </main>
 
 <section id="house-description">
-    <div class="house-description-item" id="description-left">
-        <h3> ¿Porque vivir en El Terrón? </h3>
-        <p> El Terrón es un oasis de privacidad y lujo exclusivo. Con seguridad 24/7, amplios espacios verdes y servicios de alta calidad, tendrás todo lo que necesitas para vivir una vida de comodidad y tranquilidad. </p>
+    <div class="house-description-item description-left">
+        <h3> ¿Porque vivir en {{barrio.nombre}}? </h3>
+        {% if barrio.descripcion|length_greater_than:250 %}
+        <p id="barrio-description" data-text="{{barrio.descripcion}}"> {{barrio.descripcion|slice:":250"}} </p>
         <p class="house-info">+ más info</p>
+        {% else %}
+        <p id="barrio-description"> {{barrio.descripcion}} </p>
+        {% endif %}
     </div>
-    <div class="house-description-item" id="description-right">
-        <h3> Información </h3>
-        <p> {{casa.descripcion_larga}} </p>
+    {% for key, value in casa.informacion.items %}
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="house-description-item description-left">
+        <h3> {{key}} </h3>
+        {% if value|length_greater_than:250 %}
+        <p data-text="{{value}}"> {{value|slice:":250"}} </p>
         <p class="house-info">+ más info</p>
+        {% else %}
+        <p> {{value}} </p>
+        {% endif %}
     </div>
+    {% else %}
+    <div class="house-description-item description-right">
+        <h3> {{key}} </h3>
+        {% if value|length_greater_than:250 %}
+        <p data-text="{{value}}"> {{value|slice:":250"}} </p>
+        <p class="house-info">+ más info</p>
+        {% else %}
+        <p> {{value}} </p>
+        {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
 </section>
 
 <section id="house-options">
     <div id="house-options-images">
-        <h3 id="house-option-planos" class="house-options-active">Planos</h3>
-        <h3 id="house-option-exteriores">Exteriores</h3>
+        <h3 id="house-option-exteriores" class="house-options-active">Exteriores</h3>
         <h3 id="house-option-interiores">Interiores</h3>
-    </div>
-  
-    <div id="planos" class="house-images active">
-        {% for i in imagenes_planos %}
-        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
-        {% empty %}
-        <p>No hay imágenes de planos</p>
-        {% endfor %}
+        <h3 id="house-option-planos">Planos</h3>
     </div>
 
     <div id="exteriores" class="house-images">
@@ -53,29 +68,27 @@
         {% endfor %}
     </div>
   
-    <div id="interiores" class="house-images">
+    <div id="interiores" class="house-images active">
         {% for i in imagenes_interiores %}
         <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
         {% empty %}
         <p>No hay imágenes interiores</p>
         {% endfor %}
     </div>
+
+    <div id="planos" class="house-images">
+        {% for i in imagenes_planos %}
+        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+        {% empty %}
+        <p>No hay imágenes de planos</p>
+        {% endfor %}
+    </div>
 </section>
 
 <section id="avances-obra">
-    <h2> Avances de obra </h2>
+    <h2> Video </h2>
     <div id="avances-slider">
-        {% for i in imagenes_avances %}
-        {% if forloop.first %}
-        <img id="sa-first" class="avances-slider-image sa-active" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
-        {% elif forloop.last %}
-        <img id="sa-last" class="avances-slider-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
-        {% else %}
-        <img class="avances-slider-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
-        {% endif %}
-        {% empty %}
-        <p> No hay imágenes de avances de obra </p>
-        {% endfor %}
+        <iframe id="yt-vid" src="https://www.youtube.com/embed/{{casa.video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 </section>
 

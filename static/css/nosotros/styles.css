@@ -140,6 +140,17 @@
     font-size: 1.6em;
 }
 
+@media(max-width: 800px){
+    #estrategia-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #estrategia-container > .est-son{
+        width: 100%;
+    }
+}
+
 /* #nosotros-img{
     width: 30%;
     height: 50vh;

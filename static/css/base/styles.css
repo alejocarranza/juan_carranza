@@ -318,6 +318,7 @@ header{
     #form-contact{
         margin-top: 20px;
         margin-bottom: 60px;
+        width: 75%;
     }
 
     .c-input{
@@ -328,7 +329,11 @@ header{
         min-height: 50px;
     }
 }
-
+@media (max-width: 600px){
+    #form-contact{
+        width: 85%;
+    }
+}
 
 /* FOOTER */
 footer{

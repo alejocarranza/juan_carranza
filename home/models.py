@@ -32,18 +32,19 @@ class Informacion(models.Model):
     medio_contacto= JSONField(verbose_name= "Medio de contacto extra", blank= True, null= True)
 
     # Página nosotros
-    titulo= models.TextField(verbose_name= "Titulo de texto de la pagina nosotros", max_length=140)
-    texto= models.TextField(verbose_name= "Texto de la pagina nosotros", max_length=500)
+    subtitulo_nosotros= models.CharField(verbose_name="Subtítulo del texto de la página nosotros", max_length= 30)
+    titulo_nosotros= models.TextField(verbose_name= "Título del texto de la pagina nosotros", max_length=100)
+    texto_nosotros= models.TextField(verbose_name= "Texto de la pagina nosotros", max_length=450)
 
-    imagen1= models.ImageField(verbose_name="Imágen del texto ubicado a la izquierda de la segunda sección de la página nosotros", upload_to= "nosotros/seccion2/imagenes")
-    subtitulo1= models.CharField(verbose_name="Subtitulo del texto ubicado a la izquierda de la segunda sección de la página nosotros", max_length= 40)
-    titulo1= models.TextField(verbose_name="Título del texto ubicado a la izquierda de la segunda sección de la página nosotros", max_length= 30)
-    texto1= models.TextField(verbose_name="Texto ubicado a la izquierda de la segunda sección de la página nosotros", max_length= 250)
+    imagen1_nosotros= models.ImageField(verbose_name="Imágen del texto ubicado a la izquierda de la segunda sección de la página nosotros", upload_to="nosotros/seccion2/imagenes")
+    subtitulo1_nosotros= models.CharField(verbose_name="Subtitulo del texto ubicado a la izquierda de la segunda sección de la página nosotros", max_length=22)
+    titulo1_nosotros= models.TextField(verbose_name="Título del texto ubicado a la izquierda de la segunda sección de la página nosotros", max_length=16)
+    texto1_nosotros= models.TextField(verbose_name="Texto ubicado a la izquierda de la segunda sección de la página nosotros", max_length=160)
 
-    imagen2= models.ImageField(verbose_name="Imágen del texto ubicado a la derecha de la segunda sección de la página nosotros", upload_to= "nosotros/seccion2/imagenes")
-    subtitulo2= models.CharField(verbose_name="Subtitulo del texto ubicado a la derecha de la segunda sección de la página nosotros", max_length= 40)
-    titulo2= models.TextField(verbose_name="Título del texto ubicado a la derecha de la segunda sección de la página nosotros", max_length= 30)
-    texto2= models.TextField(verbose_name="Texto ubicado a la derecha de la segunda sección de la página nosotros", max_length= 250)
+    imagen2_nosotros= models.ImageField(verbose_name="Imágen del texto ubicado a la derecha de la segunda sección de la página nosotros", upload_to="nosotros/seccion2/imagenes")
+    subtitulo2_nosotros= models.CharField(verbose_name="Subtitulo del texto ubicado a la derecha de la segunda sección de la página nosotros", max_length=22)
+    titulo2_nosotros= models.TextField(verbose_name="Título del texto ubicado a la derecha de la segunda sección de la página nosotros", max_length=16)
+    texto2_nosotros= models.TextField(verbose_name="Texto ubicado a la derecha de la segunda sección de la página nosotros", max_length=160)
 
     # FALTA AGREGAR UNA PARTE DE LA PÁGINA NOSOTROS
 

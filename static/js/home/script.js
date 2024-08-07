@@ -130,7 +130,7 @@ addEventListener("DOMContentLoaded", e=>{
 
             const $last= d.getElementById("c-step3");
 
-            function hoverNextStep(){
+            function hoverNextStep(width){
                 $previous= d.querySelector(".c-step-hovered");
 
                     if (!started) {
@@ -138,7 +138,9 @@ addEventListener("DOMContentLoaded", e=>{
 
                         $actual= d.getElementById("c-step1");
                         
-                        $actual.style.setProperty("transform", "translateY(-16px)");
+                        if (width>1100){
+                            $actual.style.setProperty("transform", "translateY(-16px)");
+                        };
                         $actual.style.setProperty("background-color", "rgba(240, 240 , 240, 0.8)"); 
                         $actual.classList.toggle("c-step-hovered");
 
@@ -147,7 +149,9 @@ addEventListener("DOMContentLoaded", e=>{
                         if ($previous == $last){
                             started = false;
 
-                            $previous.style.setProperty("transform", "translateY(0px)");
+                            if (width>1100){
+                                $previous.style.setProperty("transform", "translateY(0px)");
+                            };
                             $previous.style.setProperty("background-color", "var(--back-color-hover)");
 
                             clearInterval(stepsInterval);
@@ -157,20 +161,24 @@ addEventListener("DOMContentLoaded", e=>{
                             $previous.classList.toggle("c-step-hovered");
                             $actual.classList.toggle("c-step-hovered");
 
-                            $previous.style.setProperty("transform", "translateY(0px)");
+                            if (width>1100){
+                                $previous.style.setProperty("transform", "translateY(0px)");
+                            };
                             $previous.style.setProperty("background-color", "var(--back-color-hover)");
 
-                            $actual.style.setProperty("transform", "translateY(-16px)");
+                            if (width>1100){
+                                $actual.style.setProperty("transform", "translateY(-16px)");
+                            };
                             $actual.style.setProperty("background-color", "rgba(235, 235 , 235, 0.8)"); 
                         };
                     };
             };
 
-            setInterval(()=>{
+            intervalID= setInterval(()=>{
                 stepsInterval= setInterval(()=>{
-                    hoverNextStep();
+                    hoverNextStep(window.innerWidth);
                 }, 650);
-            }, 7000/*Math.floor(Math.random() * (7000 - 4000)) + 4000)*/);
+            }, 10000);
         }, 0);
 
         // EFECTO DEL BOTÓN
@@ -200,7 +208,7 @@ addEventListener("DOMContentLoaded", e=>{
                 btnEfectInteval= setInterval(()=>{
                     btnEfect();
                 }, 200);
-            }, 9000);
+            }, 10000);
         }, 0);
     })(document);
 
@@ -328,56 +336,71 @@ addEventListener("DOMContentLoaded", e=>{
                 $steps= d.getElementById("contact-steps"),
                 $contactLink= d.getElementById("contact-link");
 
-            setTransition($stepOne, ".8s", "ease");
-            setTransition($stepTwo, ".8s", "ease");
-            setTransition($stepThree, ".8s", "ease");
-            setTransition($contactLink, "2s", "ease");
-
             function showEffectCC(){
+                setTransition($stepOne, ".8s", "ease");
+                setTransition($stepTwo, ".8s", "ease");
+                setTransition($stepThree, ".8s", "ease");
+                setTransition($contactLink, "2s", "ease");
+                
                 setTimeout(()=>{
-                    $stepOne.style.setProperty("transform", "translateY(-20px)");
+                    if(window.innerWidth>1100){
+                        $stepOne.style.setProperty("transform", "translateY(-20px)");
+                    };
                     $stepOne.style.setProperty("opacity", "1");
                     $stepOne.style.setProperty("background-color", "rgba(240, 240 , 240, 0.8)");
                 }, 0);
                 setTimeout(()=>{
-                    $stepTwo.style.setProperty("transform", "translateY(-20px)");
+                    if(window.innerWidth>1100){
+                        $stepTwo.style.setProperty("transform", "translateY(-20px)");
+                    };
                     $stepTwo.style.setProperty("opacity", "1");
                     $stepTwo.style.setProperty("background-color", "rgba(240, 240 , 240, 0.8)");
                 }, 200);
                 setTimeout(()=>{
-                    $stepThree.style.setProperty("transform", "translateY(-20px)");
+                    if(window.innerWidth>1100){
+                        $stepThree.style.setProperty("transform", "translateY(-20px)");
+                    };
                     $stepThree.style.setProperty("opacity", "1");
                     $stepThree.style.setProperty("background-color", "rgba(240, 240 , 240, 0.8)");
                 }, 500);
 
                 setTimeout(()=>{
-                    $stepOne.style.setProperty("transform", "translateY(0px)");
+                    if(window.innerWidth>1100){
+                        $stepOne.style.setProperty("transform", "translateY(0px)");
+                    };
                     $stepOne.style.setProperty("background-color", "var(--back-color-hover)");
                 }, 400);
                 setTimeout(()=>{
-                    $stepTwo.style.setProperty("transform", "translateY(0px)");
+                    if(window.innerWidth>1100){
+                        $stepTwo.style.setProperty("transform", "translateY(0px)");
+                    };
                     $stepTwo.style.setProperty("background-color", "var(--back-color-hover)");
                 }, 700);
                 setTimeout(()=>{
-                    $stepThree.style.setProperty("transform", "translateY(0px)");
+                    if(window.innerWidth>1100){
+                        $stepThree.style.setProperty("transform", "translateY(0px)");
+                    };
                     $stepThree.style.setProperty("background-color", "var(--back-color-hover)");
                 }, 1000);
 
                 setTimeout(()=>{
-                    $contactLink.style.setProperty("transform", "translateX(0px)");
+                    if(window.innerWidth>1100){
+                        $contactLink.style.setProperty("transform", "translateX(0px)");
+                    };
                     $contactLink.style.setProperty("opacity", "1");
                 }, 200);
             };
 
             function dissapearCC(){
-                $stepOne.style.setProperty("transform", "translateY(60px)");
-                $stepTwo.style.setProperty("transform", "translateY(60px)");
-                $stepThree.style.setProperty("transform", "translateY(60px)");
+                if(window.innerWidth>1100){
+                    $stepOne.style.setProperty("transform", "translateY(60px)");
+                    $stepTwo.style.setProperty("transform", "translateY(60px)");
+                    $stepThree.style.setProperty("transform", "translateY(60px)");
+                    $contactLink.style.setProperty("transform", "translateX(50px)");
+                };
                 $stepOne.style.setProperty("opacity", "0");
                 $stepTwo.style.setProperty("opacity", "0");
                 $stepThree.style.setProperty("opacity", "0");
-
-                $contactLink.style.setProperty("transform", "translateX(50px)");
                 $contactLink.style.setProperty("opacity", "0");
             };
 
