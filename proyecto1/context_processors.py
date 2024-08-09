@@ -1,6 +1,7 @@
 from casas.models import Casa
 from casas.models import Barrio
 from home.models import Informacion
+from home.models import Images
 
 def casas(request):
     casas= Casa.objects.all()
@@ -16,4 +17,10 @@ def global_variable(request):
     return {
         "informacion": informacion,
         "barrios5": barrios,
+    }
+
+def images(request):
+    images= Images.objects.get(id= 1)
+    return {
+        "images": images,
     }

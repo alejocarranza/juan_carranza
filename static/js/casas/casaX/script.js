@@ -31,8 +31,91 @@ addEventListener("DOMContentLoaded", ()=>{
    resizeImage(getDimesions(window.innerWidth));
   }, 10)
   
-  // No se que hace
-  function showImages(option) {
+  // House options
+  function changeActive(actual, next){
+    actual.style.display = 'none';  
+    next.style.display = 'block'; 
+    setTimeout(()=>{
+      actual.classList.toggle("image-active");
+      next.classList.toggle("image-active");
+    }, 10);
+  };
+
+  function showContImage(elem, which){
+    let data_class= elem.getAttribute("data-class");
+    d.querySelectorAll('#house-options-images h3').forEach(el => {
+      el.classList.remove('house-options-active');
+    });
+    elem.classList.add('house-options-active');
+    const $first_img= d.getElementById(`${which}-${data_class}-image`),
+      $previous_active= d.querySelector(".image-active");
+    changeActive($previous_active, $first_img);
+  };
+
+  d.querySelectorAll('#house-options-images h3').forEach(elem => {
+    elem.addEventListener('click', () => {  
+      showContImage(elem, "first");
+    });
+  });
+
+  function showImage(action, actual, container){
+    function getNextContainer(actual_cont, action){
+      let next_cont, elem;
+      if (action=="right"){
+        next_cont= actual_cont.nextElementSibling;
+      }else{
+        next_cont= actual_cont.previousElementSibling;
+      };
+
+      if(next_cont.classList.contains("house-images")){
+        elem= d.getElementById(`house-option-${next_cont.getAttribute("id")}`);
+        if(action=="right"){
+          showContImage(elem, "first");
+        }else{
+          showContImage(elem, "last");
+        };
+      }else{
+        if(action=="right"){
+          elem= d.getElementById(`house-option-exteriores`);
+          showContImage(elem, "first");
+        }else{
+          elem= d.getElementById(`house-option-planos`);
+          showContImage(elem, "first");
+        };
+      }
+    };
+
+    let next;
+    if(action=="left"){
+      if(actual.previousElementSibling){
+        next= actual.previousElementSibling;
+        changeActive(actual, next);
+      }else{
+        getNextContainer(container, "left");
+      };
+    }else{
+      if(actual.nextElementSibling){
+        next= actual.nextElementSibling;
+        changeActive(actual, next);
+      }else{
+        getNextContainer(container, "right");
+      };
+    };
+  };
+
+  const $left_arrow= d.getElementById("hc-left"),
+    $right_arrow= d.getElementById("hc-right");
+  function callShowImage(action){
+    const $actual= d.querySelector(".image-active"),
+      $container= $actual.parentElement;
+
+    showImage(action, $actual, $container);
+  };
+  $left_arrow.addEventListener("click", ()=>{callShowImage("left")});
+  $right_arrow.addEventListener("click", ()=>{callShowImage("right")});
+  
+
+  /*function showImages(option) {
     d.querySelectorAll('.house-images').forEach(elem => {
       elem.style.display = 'none';
     });
@@ -63,7 +146,7 @@ addEventListener("DOMContentLoaded", ()=>{
       const targetImage = d.querySelector(`#${event.target.innerText.toLowerCase()}`);
       targetImage.classList.add("active");
     }
-  });
+  });*/
 
   // mas info
   const $btn_mas= d.querySelectorAll(".house-info");
@@ -77,58 +160,7 @@ addEventListener("DOMContentLoaded", ()=>{
     $btn.addEventListener("click", ()=>{change_text($btn.previousElementSibling, $btn)})
   });
 
-  // slider
-  const $last= d.getElementById("sa-last"),
-    $first= d.getElementById("sa-first");
-
-  const slide= function($last, $first, side){
-    const $actual= d.getElementsByClassName("sa-active")[0];
-        
-    $actual.classList.toggle("sa-active");
-
-    if(side=="forward"){
-      if ($actual === $last) {
-        $first.classList.toggle("sa-active");
-      } else {
-        $actual.nextElementSibling.classList.toggle("sa-active");
-      };
-    }else{
-      if ($actual === $first) {
-        $last.classList.toggle("sa-active");
-      } else {
-        $actual.previousElementSibling.classList.toggle("sa-active");
-      };
-    };
-  };
-
-  function startInterval(callback, interval) {
-    return setInterval(callback, interval);
-  };
-
-  function stopInterval(intervalId) {
-    clearInterval(intervalId);
-  };
-
-  let slideInterval;
-  const callback = function (entry){
-    if(entry[0].isIntersecting){
-      slideInterval = startInterval(function () {
-        slide($last, $first, "forward");
-      }, 3500);    
-    } else{
-      stopInterval(slideInterval);
-    };
-  };
-
-  const observer= new IntersectionObserver(callback, {threshold: 0.1,});
-  observer.observe(d.getElementById("avances-slider"));
-
-
   // EFECTOS AL APARECER EN PANTALLA
-  function setTransition(el, duration, type){
-    el.style.setProperty("transition", `all ${duration} ${type}`);
-  };
-
   setTimeout(()=>{ // EFECTO DE LA HOUSE DESCRIPTION
     const $houseDescriptionLeft= d.querySelectorAll(".description-left"),
       $houseDescriptionRight= d.querySelectorAll(".description-right"),
@@ -192,9 +224,6 @@ addEventListener("DOMContentLoaded", ()=>{
     const $houseOptions= d.getElementById("house-options-images"),
       $houseOptionsChildrens= $houseOptions.children;
 
-    for(let i of $houseOptionsChildrens){
-      setTransition(i, "1s", "ease");
-    };
     function showEffectHO(){
       for(let i of $houseOptionsChildrens){
         i.style.setProperty("transform", "translateY(0)");
@@ -205,7 +234,7 @@ addEventListener("DOMContentLoaded", ()=>{
 
     function dissapearHO(){
       for(let i of $houseOptionsChildrens){
-        i.style.setProperty("transform", "translateY(50px)");
+        i.style.setProperty("transform", "translateY(30px)");
         i.style.setProperty("opacity", "0");
         i.style.setProperty("visibility", "hidden");
       };
@@ -219,7 +248,7 @@ addEventListener("DOMContentLoaded", ()=>{
       };
     };
 
-    const observer= new IntersectionObserver(effectHO, {threshold: 1,});
+    const observer= new IntersectionObserver(effectHO, {threshold: 0.4,});
     observer.observe($houseOptions);
 
     d.addEventListener("visibilitychange", e=>{

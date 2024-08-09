@@ -72,6 +72,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'proyecto1.context_processors.casas',
                 'proyecto1.context_processors.global_variable',
+                'proyecto1.context_processors.images',
             ],
         },
     },
@@ -131,7 +132,7 @@ STATIC_URL = 'static/'
 # STATIC_ROOT= os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS= (os.path.join(BASE_DIR, "static"), )
 
-# MEDIA_URL = '/media/'
+#MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 

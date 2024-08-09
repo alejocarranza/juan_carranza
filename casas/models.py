@@ -23,7 +23,6 @@ class Barrio(models.Model):
 class Imagen(models.Model):
     imagen= models.ImageField(upload_to= "casas/imagenes/")
     opciones= (
-        ("avance_de_obra", "avance_de_obra"),
         ("exteriores", "exteriores"),
         ("interiores", "interiores"),
         ("planos", "planos"),

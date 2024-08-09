@@ -54,3 +54,7 @@ class Informacion(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class Images(models.Model):
+    left_arrow= models.ImageField(upload_to="general/arrow/")
+    right_arrow= models.ImageField(upload_to="general/arrow/")

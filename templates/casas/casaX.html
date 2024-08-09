@@ -55,22 +55,40 @@
 
 <section id="house-options">
     <div id="house-options-images">
-        <h3 id="house-option-exteriores" class="house-options-active">Exteriores</h3>
-        <h3 id="house-option-interiores">Interiores</h3>
-        <h3 id="house-option-planos">Planos</h3>
+        <h3 data-class="ext" id="house-option-exteriores" class="house-options-active">Exteriores</h3>
+        <h3 data-class="int" id="house-option-interiores">Interiores</h3>
+        <h3 data-class="plan" id="house-option-planos">Planos</h3>
     </div>
+
+    <img id="hc-left" class="hc-arrow" width="40" src="{{ images.left_arrow.url }}" alt="left">
 
     <div id="exteriores" class="house-images">
         {% for i in imagenes_exteriores %}
-        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+            {% if forloop.first %}
+                <img id="first-ext-image" class="house-image1 ext-image image-active" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+            {% else %}
+                {% if forloop.last %}
+                    <img id="last-ext-image" class="house-image1 ext-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+                {% else %}
+                    <img class="house-image1 ext-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+                {% endif %}
+            {% endif %}
         {% empty %}
-        <p>No hay imágenes exteriores</p>
+            <p>No hay imágenes exteriores</p>
         {% endfor %}
     </div>
   
     <div id="interiores" class="house-images active">
         {% for i in imagenes_interiores %}
-        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+            {% if forloop.first %}
+                <img id="first-int-image" class="house-image1 int-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+            {% else %}
+                {% if forloop.last %}
+                    <img id="last-int-image" class="house-image1 int-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+                {% else %}
+                    <img class="house-image1 int-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+                {% endif %}
+            {% endif %}
         {% empty %}
         <p>No hay imágenes interiores</p>
         {% endfor %}
@@ -78,11 +96,21 @@
 
     <div id="planos" class="house-images">
         {% for i in imagenes_planos %}
-        <img src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+            {% if forloop.first %}
+                <img id="first-plan-image" class="house-image1 plan-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+            {% else %}
+                {% if forloop.last %}
+                    <img id="last-plan-image" class="house-image1 plan-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+                {% else %}
+                    <img class="house-image1 plan-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
+                {% endif %}
+            {% endif %}
         {% empty %}
         <p>No hay imágenes de planos</p>
         {% endfor %}
     </div>
+
+    <img id="hc-right" class="hc-arrow" width="40" src="{{ images.right_arrow.url }}" alt="right">
 </section>
 
 <section id="avances-obra">

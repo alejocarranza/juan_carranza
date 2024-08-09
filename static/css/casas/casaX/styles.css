@@ -138,6 +138,10 @@ main{
 
 /* SECCION IMAGENES */
 
+#house-options{
+    position: relative;
+}
+
 #house-options-images{
     width: 100%;
     display: flex;
@@ -171,9 +175,47 @@ main{
     display: inline-block;
     margin-right: 20px;
     cursor: pointer;
+    transition: color .5s ease, background-color .5s ease, transform 1s ease, opacity 1s ease, visibility 1s ease;
 }
 
-.house-images {
+.house-images{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.house-image1{
+    display: none;
+    opacity: 0;
+    transition: all 1s ease;
+    width: 50vw;
+    height: 37.5vw;
+}
+
+.image-active{
+    display: block;
+    opacity: 1;
+}
+
+.hc-arrow{
+    position: absolute;
+    top: calc(50% - 10px);
+    transition: all .3s ease;
+}
+#hc-left{
+    left: 1%;
+}
+#hc-right{
+    right: 1%;
+}
+.hc-arrow:hover{
+    cursor: pointer;
+    transform: scale(95%);
+}
+
+
+/*.house-images {
     display: none;
     max-width: 100%;
     flex-wrap: wrap;
@@ -195,7 +237,7 @@ main{
 .house-images.active img {
     transform: scale(1);
 }
-
+*/
 
 /* SLIDER SECTION */
 #avances-obra{
@@ -214,7 +256,7 @@ main{
     color: var(--back-color);
     font-size: 1.3em;
     font-weight:lighter;   
-    margin: 40px 0;
+    margin: 12px 0 40px 0;
     text-align: center; 
 }
 
