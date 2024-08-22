@@ -58,3 +58,5 @@ class Informacion(models.Model):
 class Images(models.Model):
     left_arrow= models.ImageField(upload_to="general/arrow/")
     right_arrow= models.ImageField(upload_to="general/arrow/")
+    open_complete= models.ImageField(upload_to="general/complete/")
+    close_complete= models.ImageField(upload_to="general/complete/")

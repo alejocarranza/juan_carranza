@@ -80,7 +80,7 @@ addEventListener("DOMContentLoaded", ()=>{
           showContImage(elem, "first");
         }else{
           elem= d.getElementById(`house-option-planos`);
-          showContImage(elem, "first");
+          showContImage(elem, "last");
         };
       }
     };
@@ -114,6 +114,43 @@ addEventListener("DOMContentLoaded", ()=>{
   $left_arrow.addEventListener("click", ()=>{callShowImage("left")});
   $right_arrow.addEventListener("click", ()=>{callShowImage("right")});
   
+  const $all_images= d.querySelectorAll(".house-image1"),
+    $complete_cont= d.querySelector(".complete-cont"),
+    $open_complete= d.getElementById("open-complete"),
+    $close_complete= d.getElementById("close-complete");
+  let $img_active;
+
+  $all_images.forEach($image1=>{
+    $image1.addEventListener("mouseover", ()=>{
+      $complete_cont.style.opacity= 1;
+    });
+    $image1.addEventListener("mouseout", ()=>{
+      $complete_cont.style.opacity= 0;
+    });
+  });
+  $complete_cont.addEventListener("mouseover", ()=>{
+    $complete_cont.style.opacity= 1;
+  });
+  $complete_cont.addEventListener("mouseout", ()=>{
+    $complete_cont.style.opacity= 0;
+  });
+
+  function change_img_complete(){
+    $all_images.forEach($image=>{
+      $image.classList.toggle("image-complete");
+    });
+    $left_arrow.classList.toggle("left-arrow-complete");
+    $right_arrow.classList.toggle("right-arrow-complete");
+    $complete_cont.classList.toggle("complete-cont-complete");
+    $open_complete.classList.toggle("no-display");
+    $close_complete.classList.toggle("no-display");
+  }
+  $open_complete.addEventListener("click", ()=>{
+    change_img_complete($img_active);
+  });
+  $close_complete.addEventListener("click", ()=>{
+    change_img_complete($img_active);
+  });
 
   /*function showImages(option) {
     d.querySelectorAll('.house-images').forEach(elem => {

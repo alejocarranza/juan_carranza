@@ -78,7 +78,7 @@
         {% endfor %}
     </div>
   
-    <div id="interiores" class="house-images active">
+    <div id="interiores" class="house-images">
         {% for i in imagenes_interiores %}
             {% if forloop.first %}
                 <img id="first-int-image" class="house-image1 int-image" src="{{ i.imagen.url }}" alt="{{ i.slug }}">
@@ -110,11 +110,27 @@
         {% endfor %}
     </div>
 
+    <div class="complete-cont">
+        <img id="open-complete" class="complete-img" src="{{ images.open_complete.url }}" alt="Pantalla grande">
+        <img id="close-complete" class="complete-img no-display" src="{{ images.close_complete.url }}" alt="Pantalla grande">
+    </div>
+
     <img id="hc-right" class="hc-arrow" width="40" src="{{ images.right_arrow.url }}" alt="right">
 </section>
 
+<section id="detalles">
+    <h3 id="detalles-title"> Detalles </h3>
+    <div id="detalles-info">
+        <p><b> Superficie terreno: </b>{{casa.sup_terreno}}m2</p>
+        <p><b> Superficie cubierta: </b>{{casa.sup_cubierta}}m2</p>
+        <p><b> Dormitorios: </b>{{casa.dormitorios}}</p>
+        <p><b> Baños: </b>{{casa.baños}}</p>
+        <p><b> Ambientes: </b>{{casa.ambientes}}</p>
+        <p><b> Precio: </b>{{casa.precio}} US$</p>
+    </div>
+</section>
+
 <section id="avances-obra">
-    <h2> Video </h2>
     <div id="avances-slider">
         <iframe id="yt-vid" src="https://www.youtube.com/embed/{{casa.video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
