@@ -115,7 +115,7 @@ addEventListener("DOMContentLoaded", e=>{
         // Al hacer click te manda a la url de la casa
         for(let i= 0; i < $casasCards.length; i++){
             $casasCards[i].addEventListener("click", e=> {
-                open(`casas/${$casasCards[i].dataset.url}`, "_self");
+                location.href= `${$casasCards[i].dataset.url}`;
             });
         };
     })(document, window);

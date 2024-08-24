@@ -11,6 +11,7 @@ def home(request):
     for i in range(casas.count()):
         casasImagen[casas[i].slug]= {
             "nombre": casas[i].nombre, 
+            "barrio": casas[i].direccion,
             "imagen_principal": {
                 "url": casas[i].imagen_principal.url,
             },
